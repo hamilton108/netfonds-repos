@@ -1,0 +1,90 @@
+apply plugin: 'java'
+
+apply from: '../gradlecommon/depversions.gradle'
+
+group = 'hamilton108'
+archivesBaseName = 'netfondsrepos'
+
+version = '1.1'
+
+ext.myLibName = "netfondsrepos-${version}.jar"
+
+configurations {
+    aspectjTask
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+/*
+sourceSets {
+    main {
+        output.classesDir = 'build/classes'
+    }
+}
+*/
+
+dependencies {
+    compile project(':oahu')
+    compile project(':critter-repos')
+    compile "log4j:log4j:$log4jVersion"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.ccil.cowan.tagsoup:tagsoup:$tagsoupVersion"
+    compile "net.sourceforge.htmlunit:htmlunit:$htmlunitVersion"
+    //------------------- aspectj -------------------
+    aspectjTask "org.aspectj:aspectjrt:$aspectjVersion"
+    aspectjTask "org.aspectj:aspectjtools:$aspectjVersion"
+    aspectjTask "org.aspectj:aspectjweaver:$aspectjVersion"
+}
+
+
+
+String clazzPath() {
+    ((configurations.runtime.files.collect { f ->
+        f.name
+    }) << ".").join(" ")
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'netfondsrepos.playground.Demo1'
+        attributes 'Class-Path': clazzPath()
+    }
+}
+
+def jarFile = new File("$libsDir/${myLibName}")
+
+task copyToParentProject(type: Copy, dependsOn: jar) {
+    into parentDist from jarFile
+}
+
+//---------------------------- AOP ----------------------------------
+task cleanClassesZero(type: Delete) {
+    delete fileTree(project.buildDir.toString() + "/classes0")
+}
+
+compileJava {
+    //dependsOn cleanClasses0
+
+    def myInPath = project.buildDir.toString() + "/classes0"
+
+    destinationDir = new File(myInPath)
+
+    doLast {
+        def mySourceRoots = project.sourceSets.main.java.srcDirs[0].toString() + "/netfondsrepos/aspects"
+        def aopcp = configurations.compile.asPath << ":" << configurations.aspectjTask.asPath
+
+        ant.taskdef(resource: 'org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties',
+                classpath: configurations.aspectjTask.asPath)
+        ant.iajc(inpath: myInPath,
+                source: '1.8',
+                target: '1.8',
+                destDir: project.sourceSets.main.output.classesDir,
+                sourceRoots: mySourceRoots,
+                classpath: aopcp)
+    }
+}
