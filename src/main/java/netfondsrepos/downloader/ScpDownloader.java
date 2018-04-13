@@ -1,14 +1,12 @@
 package netfondsrepos.downloader;
 
 import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-import oahu.dto.Tuple;
 import oahu.financial.html.EtradeDownloader;
 
 import java.io.IOException;
-import java.util.Optional;
+import java.io.Serializable;
 
-public class ScpDownloader implements EtradeDownloader<Page> {
+public class ScpDownloader implements EtradeDownloader<Page, Serializable> {
     private boolean javaScriptEnabled = false;
 
     @Override

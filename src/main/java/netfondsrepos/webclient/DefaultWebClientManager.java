@@ -37,9 +37,6 @@ public class DefaultWebClientManager implements WebClientManager {
         return client.getPage(url);
     }
 
-    private Page getOrderPage(String optionTicker) throws IOException {
-        return null;
-    }
     //endregion
 
     //region Local Methods

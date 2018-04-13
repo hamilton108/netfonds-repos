@@ -2,18 +2,12 @@ package netfondsrepos.downloader;
 
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
-import oahu.dto.Tuple;
 import oahu.financial.html.EtradeDownloader;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.HashMap;
-import java.util.Optional;
-import java.util.Properties;
 
-public class MockDownloader implements EtradeDownloader<Page> {
+public class MockDownloader implements EtradeDownloader<Page, Serializable> {
     private boolean javaScriptEnabled = false;
     private WebClient webClient;
     private String storePath;

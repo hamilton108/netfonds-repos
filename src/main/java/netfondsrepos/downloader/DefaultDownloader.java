@@ -1,15 +1,15 @@
 package netfondsrepos.downloader;
 
 import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
 import oahu.annotations.StoreHtmlPage;
 import oahu.annotations.StoreTxtPage;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.html.WebClientManager;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class DefaultDownloader implements EtradeDownloader<Page> {
+public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
 
 
     //webClient.getOptions().setJavaScriptEnabled(false);

@@ -1,11 +1,8 @@
 package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -308,7 +305,7 @@ public class DefaultEtradeRepository implements
     private String currentTicker = null;
 
     private StockMarketRepository stockMarketRepository;
-    private EtradeDownloader<Page> downloader;
+    private EtradeDownloader<Page, Serializable> downloader;
     private DefaultContentHandler contentHandler;
     private OptionCalculator optionCalculator;
 
@@ -317,7 +314,7 @@ public class DefaultEtradeRepository implements
         this.contentHandler.setFactory(this);
     }
 
-    public void setDownloader(EtradeDownloader<Page> downloader) {
+    public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
         this.downloader = downloader;
     }
 
