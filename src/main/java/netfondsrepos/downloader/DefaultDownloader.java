@@ -13,7 +13,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
 
 
     //webClient.getOptions().setJavaScriptEnabled(false);
- 
+
    // private WebClient webClient;
 
     //private boolean javaScriptEnabled = false;
@@ -62,7 +62,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
             loginPage = button.click();
         }
     }
-    
+
     @Override
     public void logout() throws IOException {
         String logoutAnchor = "https://www.netfonds.no/account/logout.php";
@@ -103,7 +103,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
     private String tickerUrl(String ticker) {
         return String.format("http://hopey.netfonds.no/derivative.php?underlying_paper=%s&underlying_exchange=OSE&type=&exchange=OMFE", ticker);
     }
-    
+
     private String indexUrl(String ticker) {
         return String.format("http://hopey.netfonds.no/peers.php?paper=%s&exchange=OSE", ticker);
     }
@@ -121,6 +121,8 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
         return String.format("https://www.netfonds.no/account/order.php?paper=%s.OMFE",ticker);
     }
 
+    // https://www.netfonds.no/quotes/kurs.php?exchange=OMFE&sec_types=&sectors=&ticks=&table=tab&sort=alphabetic
+    
     /*
     @Override
     @StoreHtmlPage
