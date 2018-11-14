@@ -38,43 +38,51 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
     private WebClientManager webClientManager;
 
 
+
     /*
-    HtmlPage loginPage = null;
-    HtmlPage logoutPage = null;
-    @Override
-    public void login() throws IOException {
-        Optional<Tuple<String>> prm = logonParam();
-        if (prm.isPresent()) {
+        HtmlPage loginPage = null;
+        HtmlPage logoutPage = null;
+        @Override
+        public void login() throws IOException {
+            Optional<Tuple<String>> prm = logonParam();
+            if (prm.isPresent()) {
 
-            Tuple<String> prmx = prm.get();
+                Tuple<String> prmx = prm.get();
 
 
-            HtmlPage page = webClient.getPage("https://bang.netfonds.no/auth.php");
-            HtmlForm form = page.getFormByName("login");
+                HtmlPage page = webClient.getPage("https://bang.netfonds.no/auth.php");
+                HtmlForm form = page.getFormByName("login");
 
-            HtmlSubmitInput button = form.getInputByName("confirm");
-            HtmlTextInput customer = form.getInputByName("customer");
-            HtmlPasswordInput password = form.getInputByName("password");
+                HtmlSubmitInput button = form.getInputByName("confirm");
+                HtmlTextInput customer = form.getInputByName("customer");
+                HtmlPasswordInput password = form.getInputByName("password");
 
-            customer.setValueAttribute(prmx.first());
-            password.setValueAttribute(prmx.second());
+                customer.setValueAttribute(prmx.first());
+                password.setValueAttribute(prmx.second());
 
-            loginPage = button.click();
+                loginPage = button.click();
+            }
         }
-    }
 
-    @Override
-    public void logout() throws IOException {
-        String logoutAnchor = "https://www.netfonds.no/account/logout.php";
-        HtmlAnchor logout = loginPage.getAnchorByHref(logoutAnchor);
-        logoutPage = logout.click();
-    }
-    */
+        @Override
+        public void logout() throws IOException {
+            String logoutAnchor = "https://www.netfonds.no/account/logout.php";
+            HtmlAnchor logout = loginPage.getAnchorByHref(logoutAnchor);
+            logoutPage = logout.click();
+        }
+        */
     @Override
     @StoreHtmlPage
     public Page downloadDerivatives(String ticker) throws IOException {
         return webClientManager.getPage(tickerUrl(ticker));
     }
+
+    @Override
+    @StoreTxtPage
+    public Page downloadDerivatives() throws IOException {
+        return webClientManager.getPage(derivativesListUrl());
+    }
+
 
     @Override
     @StoreHtmlPage
@@ -100,6 +108,9 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
         return String.format("http://www.netfonds.no/quotes/paperhistory.php?paper=%s.OSE&csv_format=csv", ticker);
     }
 
+    private String derivativesListUrl() {
+        return "https://www.netfonds.no/quotes/kurs.php?exchange=OMFE&sec_types=&sectors=&ticks=&table=tab&sort=alphabetic";
+    }
     private String tickerUrl(String ticker) {
         return String.format("http://hopey.netfonds.no/derivative.php?underlying_paper=%s&underlying_exchange=OSE&type=&exchange=OMFE", ticker);
     }
