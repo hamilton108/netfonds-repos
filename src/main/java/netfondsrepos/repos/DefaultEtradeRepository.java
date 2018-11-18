@@ -75,7 +75,6 @@ public class DefaultEtradeRepository implements
         return result.first();
     }
 
-    @Override
     public Optional<StockPrice> stockPrice(String ticker, File suppliedFile) {
         Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>
                 result = parseHtmlFor(ticker,suppliedFile);
@@ -88,7 +87,6 @@ public class DefaultEtradeRepository implements
         return putsOrCalls(ticker, false, null);
     }
 
-    @Override
     public Collection<DerivativePrice> puts(String ticker, File suppliedFile) {
         return putsOrCalls(ticker, false, suppliedFile);
     }
@@ -99,7 +97,6 @@ public class DefaultEtradeRepository implements
         return putsOrCalls(ticker, true, null);
     }
 
-    @Override
     public Collection<DerivativePrice> calls(String ticker, File suppliedFile) {
         return putsOrCalls(ticker, true, suppliedFile);
     }
@@ -109,7 +106,6 @@ public class DefaultEtradeRepository implements
         return callPutDefs(ticker, null);
     }
 
-    @Override
     public Collection<Derivative> callPutDefs(String ticker,File suppliedFile) {
         Collection<Derivative> result = new ArrayList<>();
         Collection<DerivativePrice> _calls = putsOrCalls(ticker, true, suppliedFile);
@@ -125,12 +121,9 @@ public class DefaultEtradeRepository implements
     }
 
     // public static enum PersistentCategory { OPTION_REF, OPTION_PRICE, STOCK_PRICE, ALL};
-    @Override
+    /*
     public void saveToPersistentDataStore(PersistentCategory category) {
-
     }
-
-    @Override
     public void saveToPersistentDataStore(String ticker, File suppliedFile, PersistentCategory category) {
         switch (category) {
             case OPTION_REF:
@@ -146,6 +139,7 @@ public class DefaultEtradeRepository implements
                 throw new NotImplementedException("PersistentCategory.ALL not implemented");
         }
     }
+    //*/
 
     @Override
     public void setDownloadDate(LocalDate downloadDate) {

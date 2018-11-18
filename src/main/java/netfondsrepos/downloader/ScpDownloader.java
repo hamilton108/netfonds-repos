@@ -10,6 +10,11 @@ public class ScpDownloader implements EtradeDownloader<Page, Serializable> {
     private boolean javaScriptEnabled = false;
 
     @Override
+    public Page downloadDerivatives() throws IOException {
+        return null;
+    }
+
+    @Override
     public Page downloadDerivatives(String ticker) throws IOException {
         return null;
     }

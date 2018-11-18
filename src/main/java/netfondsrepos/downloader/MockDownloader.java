@@ -47,6 +47,11 @@ public class MockDownloader implements EtradeDownloader<Page, Serializable> {
     }
     //endregion Private Methods
 
+    @Override
+    public Page downloadDerivatives() throws IOException {
+        return null;
+    }
+
     //region interface EtradeDownloader
     @Override
     public Page downloadDerivatives(String ticker) throws IOException {
