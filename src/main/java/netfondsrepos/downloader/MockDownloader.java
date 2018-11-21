@@ -49,7 +49,8 @@ public class MockDownloader implements EtradeDownloader<Page, Serializable> {
 
     @Override
     public Page downloadDerivatives() throws IOException {
-        return null;
+        String url = String.format("file:///%s/derivatives.csv", storePath);
+        return webClient.getPage(url);
     }
 
     //region interface EtradeDownloader
