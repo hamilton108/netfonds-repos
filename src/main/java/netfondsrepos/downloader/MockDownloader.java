@@ -3,6 +3,7 @@ package netfondsrepos.downloader;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import oahu.financial.html.EtradeDownloader;
+import java.net.URL;
 
 import java.io.*;
 import java.util.HashMap;
@@ -49,7 +50,8 @@ public class MockDownloader implements EtradeDownloader<Page, Serializable> {
 
     @Override
     public Page downloadDerivatives() throws IOException {
-        String url = String.format("file:///%s/derivatives.csv", storePath);
+        //String url = String.format("file:///%s/derivatives.csv", storePath);
+        URL url = new File(String.format("%s/derivatives.csv", storePath)).toURI().toURL();
         return webClient.getPage(url);
     }
 
