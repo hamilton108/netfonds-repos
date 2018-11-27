@@ -31,6 +31,7 @@ sourceSets {
 dependencies {
     compile project(':oahu')
     compile project(':critter-repos')
+    compile "org.jsoup:jsoup:$jsoupVersion"
     compile "log4j:log4j:$log4jVersion"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "org.ccil.cowan.tagsoup:tagsoup:$tagsoupVersion"
