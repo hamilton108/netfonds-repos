@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+  <head>
+    <title>Netfonds -- Derivater for Norsk Hydro</title>
+    <link href="https://www.netfonds.no/static/css/netfonds-ng.css?ts=1542729111" rel="stylesheet"  type="text/css">
+<script type="text/javascript" src="https://www.netfonds.no/static/js/mainmenu-min-gen.js?ts=1542903872"></script>    <link rel="SHORTCUT ICON" href="https://www.netfonds.no/static/bits/favicon.ico">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" /> 
+    <meta name="format-detection" content="telephone=no" /> 
+    
+  </head>
+  
+  <body>
+<div class="main-menu-wrapper"><nav class="main-menu-nav"><div class="menu-content"><a href="/"><img class="logo" src="/static/nflogo-whitetxt.svg"></a><div class="desktop-menu"><ul><li class="menu-header-li"><a class="menu-header" href="/account/login.php">Min side</a><div class="sub"><div class="menuflexwrapper"><div class="menuflex" id="mf-loginhandel"><ul> <li><a class="sub-header" href="/account/handel.php">Handel</a></li><li><a href="/account/handel.php">Ordreskjema</a></li><li><a href="/account/alter.php">Ordrestatus</a></li><li><a href="/account/edit-rule.php">Regelhandel</a></li><li><a href="/account/mytick.php">Interesseliste</a></li><li><a href="/account/calendar.php">Børskalender</a></li></div><div class="menuflex" id="mf-kontooversikt"><ul> <li><a class="sub-header" href="/account/available.php">Kontooversikt</a></li><li><a href="/account/available.php">Beholdning</a></li><li><a href="/account/sluttseddel-oversikt.php">Sluttsedler</a></li><li><a href="/account/personalia.php">Kontoinformasjon</a></li><li><a href="/account/transfer.php">Betalingsoppdrag</a></li><li><a href="/account/lend.php">Aksjeutlån</a></li><li><a href="/account/subscribe.php">Mine abonnement</a></li><li><a href="/account/reskontro.php">Kontoutskrift</a></li></div><div class="menuflex" id="mf-verktoy"><ul> <li><a class="sub-header" href="/port/c/port/port.php">Verktøy</a></li><li><a href="/port/c/port/port.php">Kundeportefølje</a></li><li><a href="/account/varslinger.php">Varslinger</a></li><li><a href="/account/secacc.php">VPS</a></li><li><a href="/account/fullmakter.php">Avtaler/Fullmakter</a></li><li><a href="/account/rights-signup.php">Tegningstilbud</a></li><li><a href="/account/message.php">Kontakt Netfonds</a></li><li><a href="/account/aarsoppgave.php">Årsoppgave</a></li></div><div class="menuflex" id="mf-innstillinger"><ul> <li><a class="sub-header" href="/account/innstillinger.php">Innstillinger</a></li><li><a href="/account/forandre-passord.php">Endre passord</a></li><li><a href="/token_info.php">Engangskoder for innlogging</a></li><li><a href="/account/investment-profile.php">Investeringsprofil</a></li><li><a href="/account/order-limitations.php">Ordrebegrensinger</a></li><li><a href="/account/administrate-accounts.php">Legg til disponerbare kontoer</a></li></div></div></div></li><li class="menu-header-li"><a class="menu-header" href="/tjenester.php">Tjenester</a><div class="sub"><div class="menuflexwrapper"><div class="menuflex" id="mf-finansiering"><ul> <li><a class="sub-header" href="/finansiering.php">Finansiering</a></li><li><a href="/finansiering.php#aksjekjop">Finansiering av aksjekjøp</a></li><li><a href="/finansiering.php#shorting">Shorting av aksjer</a></li><li><a href="/finansiering.php#utlan">Tjen 2,25% på utlån av aksjer</a></li></div><div class="menuflex" id="mf-fokus"><ul> <li><a class="sub-header" href="/fokus.php">Netfonds Fokus</a></li><li><a href="/fokus.php">Nyheter</a></li><li><a href="/podcast.php">Netfonds TV</a></li><li><a href="/artikler.php">Artikler</a></li><li><a href="/seminarer.php">Seminarer</a></li></div><div class="menuflex" id="mf-produkter"><ul> <li><a class="sub-header" href="/produkter.php">Produkter</a></li><li><a href="/produkter.php#verdipapir">Verdipapirhandel</a></li><li><a href="/produkter.php#fond">Fondshandel</a></li><li><a href="/produkter.php#ask">Aksjesparekonto</a></li><li><a href="/produkter.php#ips">Individuell pensjonssparing</a></li><li><a href="/produkter.php#aktiv">Aktiv forvaltning</a></li><li><a href="/produkter.php#kapital">Kapitalforsikring</a></li></div><div class="menuflex" id="mf-tradingsoftware"><ul> <li><a class="sub-header" href="/tradingsoftware.php">Trading Software</a></li><li><a href="/tradingsoftware.php">PrimeTrader</a></li><li><a href="/tradingsoftware.php#demo">Gratis demo</a></li><li><a href="/tradingsoftware.php#sanntid">Sanntidstjenester</a></li><li><a href="/tradingsoftware.php#touch">PrimeTrader touch</a></li><li><a href="/tradingsoftware.php#om">Om PrimeTrader</a></li></div><div class="menuflex" id="mf-andretjenester"><ul> <li><a class="sub-header" href="/andretjenester.php">Andre tjenester</a></li><li><a href="/andretjenester.php#prisliste">Prisliste</a></li><li><a href="/port/p/port/port.php">Gjesteportefølje</a></li><li><a href="/andretjenester.php#bilag">Bilag til skattemeldingen</a></li><li><a href="/andretjenester.php#kursinfo">Kursinformasjon i sanntid</a></li><li><a href="/andretjenester.php#kontotyper">Kontotyper</a></li><li><a href="/andretjenester.php#sms">SMS</a></li><li><a href="/andretjenester.php#api">API</a></li></div></div></div></li><li class="menu-header-li"><a class="menu-header" href="/quotes/markedsplasser.php">Markedsplasser</a><div class="sub"><div class="menuflexwrapper"><div class="menuflex" id="mf-europa"><ul> <li><a class="sub-header" href="/quotes/markets-overview.php?market=europa">Europa</a></li><li><a href="/quotes/market.php?exchange=BTSE&amp;types=DBX">Tyskland</a></li><li><a href="/quotes/market.php?exchange=BTSE&amp;types=AMS">Nederland</a></li><li><a href="/quotes/market.php?exchange=BTSE&amp;types=PAR">Frankrike</a></li><li><a href="/quotes/market.php?exchange=BTSE&amp;types=HEX">Finland</a></li><li><a href="/quotes/market.php?exchange=BTSE&amp;types=OTHER">Andre markeder</a></li></div><div class="menuflex" id="mf-usa"><ul> <li><a class="sub-header" href="/quotes/markets-overview.php?market=usa">USA</a></li><li><a href="/quotes/market.php?exchange=O">Nasdaq</a></li><li><a href="/quotes/market.php?exchange=N">Nyse</a></li><li><a href="/quotes/market.php?exchange=A">Amex</a></li></div><div class="menuflex" id="mf-sverige"><ul> <li><a class="sub-header" href="/quotes/markets-overview.php?market=sverige">Sverige</a></li><li><a href="/quotes/market.php?exchange=ST">Stockholmsbörsen</a></li><li><a href="/quotes/market.php?exchange=NGM">Nordic Growth Market</a></li><li><a href="/quotes/market.php?exchange=ST&amp;types=W">Warrants</a></li><li><a href="/quotes/kurs.php?exchange=MFEX">Mutual Funds Market</a></li></div><div class="menuflex" id="mf-danmark"><ul> <li><a class="sub-header" href="/quotes/markets-overview.php?market=danmark">Danmark</a></li><li><a href="/quotes/market.php?exchange=CPH">København fondsbørs</a></li><li><a href="/quotes/market.php?exchange=CPH&amp;types=XF">Investeringsforeningsbørsen</a></li></div><div class="menuflex" id="mf-norge"><ul> <li><a class="sub-header" href="/quotes/markets-overview.php?market=norge">Norge</a></li><li><a href="/quotes/market.php?exchange=OSE">Oslo Børs</a></li><li><a href="/quotes/market.php?exchange=OAX">Oslo Axess</a></li><li><a href="/quotes/market.php?exchange=MERK">Merkur</a></li><li><a href="/quotes/market.php?exchange=OMFE">Opsjoner</a></li><li><a href="/quotes/market.php?exchange=OSE&amp;types=ET">ETNs</a></li><li><a href="/quotes/market.php?exchange=OSE&amp;types=W">Warrants</a></li><li><a href="/quotes/market.php?exchange=OTC">Unoterte</a></li><li><a href="/quotes/market.php?exchange=OSE&amp;types=B">Obligasjoner</a></li><li><a href="/quotes/category.php?exchange=OSE&types=CERT">Bull &amp; Bear</a></li></div><div class="menuflex" id="mf-markedsplasser-annet"><ul> <li><a class="sub-header" href="/quotes/markedsplasser-annet.php">Annet</a></li><li><a href="/quotes/live.php">Netfonds Live</a></li><li><a href="/quotes/currencies.php?exchange=FXSX">Valuta</a></li><li><a href="/quotes/kurs.php?exchange=GTIS">Råvarer</a></li><li><a href="/quotes/nbb-main.php">Gråmarked</a></li><li><a href="/quotes/funds-main.php">Fond</a></li><li><a href="/quotes/certificate-main.php">NDX</a></li><li><a href="/quotes/kurs.php?sec_types=IN&amp;exchange=NB">Renter</a></li><li><a href="/quotes/releases.php">Nyheter</a></li></div></div></div></li><li class="menu-header-li"><a class="menu-header" href="/obs.php">Hjelp</a><div class="sub"><div class="menuflexwrapper"><div class="menuflex" id="mf-obsblikunde"><ul> <li><a class="sub-header" href="/obsblikunde.php">Bli kunde</a></li><li><a href="/obsblikunde.php#hvordanblikunde">Hvordan bli kunde</a></li><li><a href="/obsblikunde.php#kontotyper">Kontotyper</a></li><li><a href="/obsblikunde.php#sikkerhet">Sikkerhet</a></li><li><a href="/obsblikunde.php#varetjenester">Våre tjenester</a></li><li><a href="/obsblikunde.php#forretningsvilkar">Forretningsvilkår</a></li></div><div class="menuflex" id="mf-obsforkunder"><ul> <li><a class="sub-header" href="/obsforkunder.php">For kunder</a></li><li><a href="/obsforkunder.php#nyttpassord">Nytt passord</a></li><li><a href="/obsforkunder.php#testepost">Test epost</a></li><li><a href="/obsforkunder.php#nybankkonto">Ny bankkonto</a></li><li><a href="/obsforkunder.php#flytteverdipapirer">Flytte verdipapirer</a></li><li><a href="/obsforkunder.php#nyadresse">Ny adresse</a></li><li><a href="/obsforkunder.php#byttekontotype">Bytte kontotype</a></li><li><a href="/obsforkunder.php#mobiltjenester">Mobiltjenester</a></li><li><a href="/obsforkunder.php#obssanntid">Sanntid</a></li><li><a href="/obsforkunder.php#vps">VPS investortjenester</a></li><li><a href="/obsforkunder.php#skattehjelp">Skattehjelp</a></li></div><div class="menuflex" id="mf-obshandel"><ul> <li><a class="sub-header" href="/obshandel.php">Handel</a></li><li><a href="/obshandel.php#komigang">Kom i gang</a></li><li><a href="/obshandel.php#aksjenorge">Aksjehandel i Norge</a></li><li><a href="/obshandel.php#aksjesverige">Aksjehandel i Sverige</a></li><li><a href="/obshandel.php#aksjeeuropa">Aksjehandel i Europa</a></li><li><a href="/obshandel.php#aksjeusa">Aksjehandel i USA</a></li><li><a href="/obshandel.php#opsjonshandel">Opsjonshandel</a></li><li><a href="/obshandel.php#obsshorting">Shorting av aksjer</a></li><li><a href="/obshandel.php#belaning">Belåning</a></li><li><a href="/obshandel.php#obsfondshandel">Fondshandel</a></li><li><a href="/obshandel.php#warrants">Warrants</a></li></div><div class="menuflex" id="mf-driftsmeldingermain"><ul> <li><a class="sub-header" href="/driftsmeldinger.php">Teknisk og drift</a></li><li><a href="/obsteknisk2.php">Tekniske problemer</a></li><li><a href="/driftsmeldinger.php">Driftsmeldinger</a></li></div><div class="menuflex" id="mf-om"><ul> <li><a class="sub-header" href="/om.php">Om Netfonds</a></li></div><div class="menuflex" id="mf-obssok"><ul> <li><a class="sub-header" href="/obssok.php">Søk</a></li></div><div class="menuflex" id="mf-kontakt"><ul> <li><a class="sub-header" href="/kontakt.php">Kontakt oss</a></li></div></div></div></li></ul><div class="top-right-flex-wrapper"><div class="menu-box" id="globe"><a onclick="showLanguages(this, [['no_bm','Norsk'],['en_GB','Engelsk']],'https://www.netfonds.no/quotes/derivative.php?underlying_paper=NHY&amp;underlying_exchange=OSE&amp;exchange=OMFE');"><img src="https://www.netfonds.no/static/bits/globe.svg" alt="change language"  border="0" /></a></div><div class="menu-box" id="sok"><form action="meta-paper.php" method=get name="gototick" class=hsearch autocomplete=off>
+<input type="hidden" name="exchange" value="OSE" />
+<input tabindex="1" type=text id=papersearch name="paper" placeholder="Tickersøk"><input type=image height=15 src="/static/bits/sok.svg"></form>
+</div><div class="menu-box" id="logg-inn"><p><a href="https://www.netfonds.no/account/login.php">Logg inn</a></p><div class="menu-box" id="bli-kunde"><p><a href="https://www.netfonds.no/account/registration.php">BLI KUNDE</a></p></div></div></div></div></div><div class="sok-hidden" id="sok-hidden2"><form action="meta-paper.php" method=get name="gototick2" class=hsearch autocomplete=off>
+<input type="hidden" name="exchange" value="OSE" />
+<input id="searchboxtoggle" type="checkbox" onclick="focusHiddenSearch();"><img src="/static/bits/sok.svg"><input id="hiddensearchbox" name="paper" type="text" placeholder="S&oslash;k"></form></div><div><div id="updatediv1" class="updatediv indexlink" data="box.box_menu_index" callback="" updated="dForsinkede kurser. Sist oppdatert fredag 23/11-2018 17:37:00"><a href='/quotes/market.php?exchange=OSE'>OSEBX: 837.14<img src='/img/bits/hdowntickr.svg' width='20' height='12'>-1.40%</a></div></div><div class="nfmobilenav"><ul><li><div class="nfmobilemenu"><input type="checkbox"/><span></span><span></span><span></span><div class="nfburgermenu"><div class="nfaccordtab"><input id="nfalogin" type="checkbox" name="tabs"><label for="nfalogin"><a href="https://www.netfonds.no/account/login.php">Logg inn/Bli kunde</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="/account/login.php">Logg inn</a></p><p><a class="sub-header" href="/obsblikunde.php">Bli kunde</a></p></div></div><div class="nfaccordtab"><input id="nfaminside" type="checkbox" name="tabs"><label for="nfaminside"><a href="/account/login.php">Min side</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="/account/handel.php">Handel</a></p><p><a class="sub-header" href="/account/available.php">Kontooversikt</a></p><p><a class="sub-header" href="/port/c/port/port.php">Verktøy</a></p><p><a class="sub-header" href="/account/innstillinger.php">Innstillinger</a></p></div></div><div class="nfaccordtab"><input id="nfatjenester" type="checkbox" name="tabs"><label for="nfatjenester"><a href="/tjenester.php">Tjenester</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="/finansiering.php">Finansiering</a></p><p><a class="sub-header" href="/fokus.php">Netfonds Fokus</a></p><p><a class="sub-header" href="/produkter.php">Produkter</a></p><p><a class="sub-header" href="/tradingsoftware.php">Trading Software</a></p><p><a class="sub-header" href="/andretjenester.php">Andre tjenester</a></p></div></div><div class="nfaccordtab"><input id="nfamarkedsplasser" type="checkbox" name="tabs"><label for="nfamarkedsplasser"><a href="/quotes/markedsplasser.php">Markedsplasser</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="/quotes/markets-overview.php?market=norge">Norge</a></p><p><a class="sub-header" href="/quotes/markets-overview.php?market=sverige">Sverige</a></p><p><a class="sub-header" href="/quotes/markets-overview.php?market=danmark">Danmark</a></p><p><a class="sub-header" href="/quotes/markets-overview.php?market=europa">Europa</a></p><p><a class="sub-header" href="/quotes/markets-overview.php?market=usa">USA</a></p><p><a class="sub-header" href="/quotes/markedsplasser-annet.php">Annet</a></p></div></div><div class="nfaccordtab"><input id="nfaobs" type="checkbox" name="tabs"><label for="nfaobs"><a href="/obs.php">Hjelp</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="/obsblikunde.php">Bli kunde</a></p><p><a class="sub-header" href="/obsforkunder.php">For kunder</a></p><p><a class="sub-header" href="/obshandel.php">Handel</a></p><p><a class="sub-header" href="/driftsmeldinger.php">Teknisk og drift</a></p><p><a class="sub-header" href="/om.php">Om Netfonds</a></p><p><a class="sub-header" href="/obssok.php">Søk</a></p><p><a class="sub-header" href="/kontakt.php">Kontakt oss</a></p></div></div><div class="nfaccordtab"><input id="nfalang" type="checkbox" name="tabs"><label for="nfalang"><a href="#">Språk</a></label><div class="nfaccordtabcontent"><p><a class="sub-header" href="https://www.netfonds.no/quotes/setlanguage.php?language=no_bm&originating_page=https://www.netfonds.no/quotes/derivative.php?underlying_paper=NHY&amp;underlying_exchange=OSE&amp;exchange=OMFE">Norsk</a></p><p><a class="sub-header" href="https://www.netfonds.no/quotes/setlanguage.php?language=en_GB&originating_page=https://www.netfonds.no/quotes/derivative.php?underlying_paper=NHY&amp;underlying_exchange=OSE&amp;exchange=OMFE">Engelsk</a></p></div></div></li></ul></nav></div><div class="main-wrapper"><div class="air"></div><div class="flex-wrapper" id="toolbar"><div class="navflex" id="navplace"><div class="navplace"><a href="/quotes/markedsplasser.php">Markedsplasser</a> > <a href="/quotes/markets-overview.php?market=norge">Norge</a> > <a href="/quotes/market.php?exchange=OSE">Oslo Børs</a> > <a href="/quotes/ppaper.php?paper=NHY.OMFE"></a></div></div><div class="navflex" id="dropdown"><p>Navigering:</p><select name="navdropdown" tabindex="2" onchange="location.href=value;"><option value="/quotes/ppaper.php?paper=NHY.OMFE">Oversikt</option><option value="/account/order.php?paper=NHY&amp;exchange=OMFE">Handle NHY</option><option value="/quotes/analysis.php?paper=NHY.OMFE">Teknisk analyse</option><option value="/quotes/releases.php?paper=NHY&amp;exchange=OMFE&amp;days=">Nyheter</option><option value="/quotes/about.php?paper=NHY.OMFE">Om NHY</option><option value="/quotes/intradaymagnify.php?paper=NHY.OMFE">Intradagsgraf</option><option value="/quotes/multiday.php?paper=NHY.OMFE">Femdagersgraf</option><option value="/quotes/correlations.php?paper=NHY.OMFE">Korrelasjoner</option><option value="/quotes/tradelog.php?paper=NHY.OMFE">Handelslogg</option><option value="/quotes/poslog.php?paper=NHY.OMFE">Dybdelogg</option><option value="/quotes/paperdump.php?paper=NHY.OMFE">Dataeksport</option><option value="/quotes/derivative.php?underlying_paper=NHY&underlying_exchange=OMFE" selected>Derivater</option></select><a class='tradebutton' href='/account/order.php?paper=NHY&amp;exchange=OMFE'>Handle</a></div><div class="wideflex" id="rtinfo">
+<span class="hdelay">
+<span id=menuupdate data="box.box_menu_updated_line,exchange.OMFE">Forsinkede kurser. Sist oppdatert: fredag 23. november</span></span>
+&nbsp;<span style="display: none; cursor: pointer;" id="topupdate" value="Stopp oppdatering">Start oppdatering</span></span>
+</div></div></div></div></div></div></div></div><script type="text/javascript" src="https://www.netfonds.no/static/js/general-min-gen.js?ts=1542903867"></script><script type="text/javascript" src="https://www.netfonds.no/static/js/paper-search-min-gen.js?ts=1542903876"></script><script  language="JavaScript" type="text/javascript">paperSearchBaseUrl = "";</script>
+<script  language="JavaScript" type="text/javascript">var imgUrl = "https://www.netfonds.no/static/";
+</script>
+<div class="main-wrapper"><div class="flex-wrapper"><div class="wideflex" id="ppaper-topp"><div class="qbox"><table id="updatetable1" width="" class="qbox" data="box.box_quote_line,paper.NHY,exchange.OSE,underlyingp.Y,update_time.,split_in_two." callback="updateQuoteTitle" updated=""><tr>
+<th class="top" colspan="12">Kurs i underliggende papir NHY (Norsk Hydro)</th>
+</tr>
+<tr class="quoteheaders">
+<th>Siste</th>
+<th>Endring</th>
+<th>Endr%</th>
+<th>Kjøper</th>
+<th>Selger</th>
+<th>Åpning</th>
+<th>Høy</th>
+<th>Lav</th>
+<th>Forrige</th>
+<th>Volum</th>
+<th>Verdi</th>
+<th>Handler</th>
+</tr>
+<tr>
+<td name="ju.l" id="ju.l">41.05</td><td class="down" name="ju.c">-0.81</td>
+<td class="down" name="ju.cp">-1.94%</td>
+<td class="right" id="ju.b.NHY.OSE" name="ju.b.NHY.OSE"><a  href="https://www.netfonds.no/account/order.php?paper=NHY.OSE&amp;type=S&amp;slimit=41.02&amp;suggest_number=0&amp;skind=limit" >41.02</a></td>
+<td class="right" id="ju.o.NHY.OSE" name="ju.o.NHY.OSE"><a  href="https://www.netfonds.no/account/order.php?paper=NHY.OSE&amp;type=B&amp;blimit=41.06&amp;suggest_number=0&amp;bkind=limit" >41.06</a></td>
+<td name="ju.op">41.83</td><td name="ju.h">41.85</td><td name="ju.lo">40.87</td><td name="ju.pr" id="ju.pr">41.86</td><td name="ju.vo">4 777 330</td><td name="ju.va">196 872 666</td><td name="ju.t">3 516</td></tr>
+</table>
+</div>
+<div class="qbox2"><table id="updatetable2" width="" class="qbox2" data="box.box_quote_line,paper.NHY,exchange.OSE,underlyingp.Y,update_time.,split_in_two.1" callback="updateQuoteTitle" updated=""><tr>
+<th class="top" colspan="12">Kurs i underliggende papir NHY (Norsk Hydro)</th>
+</tr>
+<tr class="quoteheaders">
+<th>Siste</th>
+<th>Endring</th>
+<th>Endr%</th>
+<th>Kjøper</th>
+<th>Selger</th>
+<th>Åpning</th>
+</tr>
+<tr>
+<td name="ju.l" id="ju.l">41.05</td><td class="down" name="ju.c">-0.81</td>
+<td class="down" name="ju.cp">-1.94%</td>
+<td class="right" id="ju.b.NHY.OSE" name="ju.b.NHY.OSE"><a  href="https://www.netfonds.no/account/order.php?paper=NHY.OSE&amp;type=S&amp;slimit=41.02&amp;suggest_number=0&amp;skind=limit" >41.02</a></td>
+<td class="right" id="ju.o.NHY.OSE" name="ju.o.NHY.OSE"><a  href="https://www.netfonds.no/account/order.php?paper=NHY.OSE&amp;type=B&amp;blimit=41.06&amp;suggest_number=0&amp;bkind=limit" >41.06</a></td>
+<td name="ju.op">41.83</td></tr>
+<tr class="quoteheaders">
+<th>Høy</th>
+<th>Lav</th>
+<th>Forrige</th>
+<th>Volum</th>
+<th>Verdi</th>
+<th>Handler</th>
+</tr>
+<tr>
+<td name="ju.h">41.85</td><td name="ju.lo">40.87</td><td name="ju.pr" id="ju.pr">41.86</td><td name="ju.vo">4 777 330</td><td name="ju.va">196 872 666</td><td name="ju.t">3 516</td></tr>
+</table>
+</div>
+</div><div class="wideflex" id="derivatives"><table class="com topmargin"><tr>
+<th class="top" colspan="9">Derivater</th>
+</tr>
+<tr>
+<th>Ticker</th>
+<th>Type</th>
+<th>Innløsningskurs</th>
+<th>Bortfall</th>
+<th>Kjøper</th>
+<th>Selger</th>
+<th>Siste</th>
+<th>Volum</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th class="top" colspan="9">American call</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L30&exchange=OMFE">NHY8L30</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">30.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">10.25</td><td class="rightalign">12.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L31&exchange=OMFE">NHY8L31</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">31.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">9.75</td><td class="rightalign">10.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L31.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L32&exchange=OMFE">NHY8L32</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">32.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">8.75</td><td class="rightalign">9.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L32.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L33&exchange=OMFE">NHY8L33</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">33.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">7.80</td><td class="rightalign">8.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L33.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L35&exchange=OMFE">NHY8L35</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">35.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">5.80</td><td class="rightalign">6.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L35.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L36&exchange=OMFE">NHY8L36</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">36.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">5.00</td><td class="rightalign">5.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L37&exchange=OMFE">NHY8L37</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">37.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">4.20</td><td class="rightalign">4.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L39&exchange=OMFE">NHY8L39</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">39.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">2.70</td><td class="rightalign">3.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L55&exchange=OMFE">NHY8L55</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">55.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L55.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L53&exchange=OMFE">NHY8L53</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">53.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L53.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L51&exchange=OMFE">NHY8L51</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">51.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L51.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L41&exchange=OMFE">NHY8L41</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">41.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">1.60</td><td class="rightalign">2.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L43&exchange=OMFE">NHY8L43</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">43.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.80</td><td class="rightalign">1.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L45&exchange=OMFE">NHY8L45</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">45.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.35</td><td class="rightalign">0.60</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L49&exchange=OMFE">NHY8L49</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">49.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L49.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L47&exchange=OMFE">NHY8L47</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">47.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.10</td><td class="rightalign">0.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L40&exchange=OMFE">NHY8L40</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">40.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">2.10</td><td class="rightalign">2.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L44&exchange=OMFE">NHY8L44</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">44.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.55</td><td class="rightalign">0.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L48&exchange=OMFE">NHY8L48</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">48.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L52&exchange=OMFE">NHY8L52</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">52.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L52.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L60&exchange=OMFE">NHY8L60</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">60.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L60.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L56&exchange=OMFE">NHY8L56</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">56.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L56.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L74&exchange=OMFE">NHY8L74</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">74.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L74.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L70&exchange=OMFE">NHY8L70</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">70.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L70.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L66&exchange=OMFE">NHY8L66</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">66.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L62&exchange=OMFE">NHY8L62</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">62.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L58&exchange=OMFE">NHY8L58</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">58.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L54&exchange=OMFE">NHY8L54</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">54.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L50&exchange=OMFE">NHY8L50</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">50.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L46&exchange=OMFE">NHY8L46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.20</td><td class="rightalign">0.45</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L42&exchange=OMFE">NHY8L42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">1.15</td><td class="rightalign">1.60</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L38&exchange=OMFE">NHY8L38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">3.45</td><td class="rightalign">4.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8L34&exchange=OMFE">NHY8L34</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">34.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">6.80</td><td class="rightalign">7.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8L34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A50&exchange=OMFE">NHY9A50</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">50.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.10</td><td class="rightalign">0.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A49&exchange=OMFE">NHY9A49</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">49.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.20</td><td class="rightalign">0.45</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A49.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A36&exchange=OMFE">NHY9A36</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">36.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">5.40</td><td class="rightalign">6.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A37&exchange=OMFE">NHY9A37</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">37.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">4.70</td><td class="rightalign">5.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A38&exchange=OMFE">NHY9A38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">3.95</td><td class="rightalign">4.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A39&exchange=OMFE">NHY9A39</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">39.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">3.25</td><td class="rightalign">3.95</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A40&exchange=OMFE">NHY9A40</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">40.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">2.70</td><td class="rightalign">3.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A41&exchange=OMFE">NHY9A41</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">41.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">2.20</td><td class="rightalign">2.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A42&exchange=OMFE">NHY9A42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">1.75</td><td class="rightalign">2.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A48&exchange=OMFE">NHY9A48</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">48.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.30</td><td class="rightalign">0.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A47&exchange=OMFE">NHY9A47</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">47.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.45</td><td class="rightalign">0.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A46&exchange=OMFE">NHY9A46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.55</td><td class="rightalign">0.95</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A45&exchange=OMFE">NHY9A45</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">45.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.80</td><td class="rightalign">1.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A44&exchange=OMFE">NHY9A44</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">44.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">1.05</td><td class="rightalign">1.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9A43&exchange=OMFE">NHY9A43</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">43.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">1.35</td><td class="rightalign">1.85</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9A43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B36&exchange=OMFE">NHY9B36</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">36.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">5.90</td><td class="rightalign">6.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B48&exchange=OMFE">NHY9B48</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">48.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">0.70</td><td class="rightalign">1.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B37&exchange=OMFE">NHY9B37</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">37.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">5.20</td><td class="rightalign">6.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B38&exchange=OMFE">NHY9B38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">4.60</td><td class="rightalign">5.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B39&exchange=OMFE">NHY9B39</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">39.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">3.95</td><td class="rightalign">4.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B40&exchange=OMFE">NHY9B40</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">40.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">3.35</td><td class="rightalign">4.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B41&exchange=OMFE">NHY9B41</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">41.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">2.85</td><td class="rightalign">3.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B42&exchange=OMFE">NHY9B42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">2.40</td><td class="rightalign">3.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B47&exchange=OMFE">NHY9B47</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">47.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">0.85</td><td class="rightalign">1.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B46&exchange=OMFE">NHY9B46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.10</td><td class="rightalign">1.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B45&exchange=OMFE">NHY9B45</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">45.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.35</td><td class="rightalign">1.85</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B44&exchange=OMFE">NHY9B44</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">44.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.65</td><td class="rightalign">2.15</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9B43&exchange=OMFE">NHY9B43</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">43.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">2.00</td><td class="rightalign">2.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9B43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C29&exchange=OMFE">NHY9C29</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">29.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">11.50</td><td class="rightalign">13.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C29.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C30&exchange=OMFE">NHY9C30</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">30.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">10.75</td><td class="rightalign">12.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C32&exchange=OMFE">NHY9C32</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">32.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">9.50</td><td class="rightalign">10.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C32.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C36&exchange=OMFE">NHY9C36</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">36.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">6.30</td><td class="rightalign">7.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C56&exchange=OMFE">NHY9C56</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">56.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.15</td><td class="rightalign">0.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C56.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C48&exchange=OMFE">NHY9C48</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">48.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">1.00</td><td class="rightalign">1.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C40&exchange=OMFE">NHY9C40</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">40.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">3.75</td><td class="rightalign">4.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C44&exchange=OMFE">NHY9C44</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">44.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">2.05</td><td class="rightalign">2.65</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C52&exchange=OMFE">NHY9C52</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">52.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.50</td><td class="rightalign">1.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C52.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C66&exchange=OMFE">NHY9C66</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">66.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C62&exchange=OMFE">NHY9C62</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">62.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C58&exchange=OMFE">NHY9C58</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">58.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.10</td><td class="rightalign">0.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C54&exchange=OMFE">NHY9C54</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">54.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.30</td><td class="rightalign">0.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C50&exchange=OMFE">NHY9C50</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">50.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.65</td><td class="rightalign">1.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C46&exchange=OMFE">NHY9C46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">1.45</td><td class="rightalign">1.95</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C42&exchange=OMFE">NHY9C42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">2.85</td><td class="rightalign">3.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C38&exchange=OMFE">NHY9C38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">15/03-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9C34&exchange=OMFE">NHY9C34</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">34.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">7.80</td><td class="rightalign">8.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9C34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F26&exchange=OMFE">NHY9F26</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">26.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">14.75</td><td class="rightalign">16.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F26.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F28&exchange=OMFE">NHY9F28</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">28.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">12.75</td><td class="rightalign">14.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F28.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F30&exchange=OMFE">NHY9F30</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">30.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">11.00</td><td class="rightalign">13.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F34&exchange=OMFE">NHY9F34</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">34.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">8.25</td><td class="rightalign">9.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F38&exchange=OMFE">NHY9F38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">5.60</td><td class="rightalign">6.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F42&exchange=OMFE">NHY9F42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">3.55</td><td class="rightalign">4.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F46&exchange=OMFE">NHY9F46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">2.15</td><td class="rightalign">2.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F50&exchange=OMFE">NHY9F50</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">50.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">1.25</td><td class="rightalign">1.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F66&exchange=OMFE">NHY9F66</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">66.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.05</td><td class="rightalign">0.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F62&exchange=OMFE">NHY9F62</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">62.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.20</td><td class="rightalign">0.45</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F58&exchange=OMFE">NHY9F58</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">58.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.40</td><td class="rightalign">0.65</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9F54&exchange=OMFE">NHY9F54</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">54.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.65</td><td class="rightalign">1.15</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9F54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I26&exchange=OMFE">NHY9I26</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">26.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">14.75</td><td class="rightalign">16.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I26.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I28&exchange=OMFE">NHY9I28</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">28.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">13.00</td><td class="rightalign">15.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I28.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I30&exchange=OMFE">NHY9I30</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">30.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">11.25</td><td class="rightalign">13.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I62&exchange=OMFE">NHY9I62</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">62.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">0.45</td><td class="rightalign">0.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I34&exchange=OMFE">NHY9I34</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">34.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">8.75</td><td class="rightalign">9.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I38&exchange=OMFE">NHY9I38</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">38.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">6.10</td><td class="rightalign">7.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I42&exchange=OMFE">NHY9I42</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">42.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">4.20</td><td class="rightalign">4.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I58&exchange=OMFE">NHY9I58</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">58.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">0.65</td><td class="rightalign">1.15</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I54&exchange=OMFE">NHY9I54</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">54.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">1.15</td><td class="rightalign">1.65</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I50&exchange=OMFE">NHY9I50</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">50.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">1.85</td><td class="rightalign">2.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9I46&exchange=OMFE">NHY9I46</a></td>
+<td class="leftalign">American call</td>
+<td class="rightalign">46.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">2.75</td><td class="rightalign">3.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9I46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<th class="top" colspan="9">American put</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X30&exchange=OMFE">NHY8X30</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">30.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X31&exchange=OMFE">NHY8X31</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">31.00</td><td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X31.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X32&exchange=OMFE">NHY8X32</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">32.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X32.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X33&exchange=OMFE">NHY8X33</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">33.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X33.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X35&exchange=OMFE">NHY8X35</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">35.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.05</td><td class="rightalign">0.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X35.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X36&exchange=OMFE">NHY8X36</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">36.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.20</td><td class="rightalign">0.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X37&exchange=OMFE">NHY8X37</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">37.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.30</td><td class="rightalign">0.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X39&exchange=OMFE">NHY8X39</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">39.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.75</td><td class="rightalign">1.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X55&exchange=OMFE">NHY8X55</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">55.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">13.00</td><td class="rightalign">15.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X55.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X53&exchange=OMFE">NHY8X53</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">53.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">11.00</td><td class="rightalign">13.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X53.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X51&exchange=OMFE">NHY8X51</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">51.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">9.50</td><td class="rightalign">10.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X51.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X41&exchange=OMFE">NHY8X41</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">41.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">1.45</td><td class="rightalign">1.95</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X43&exchange=OMFE">NHY8X43</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">43.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">2.55</td><td class="rightalign">3.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X45&exchange=OMFE">NHY8X45</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">45.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">3.95</td><td class="rightalign">4.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X49&exchange=OMFE">NHY8X49</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">49.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">7.50</td><td class="rightalign">8.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X49.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X47&exchange=OMFE">NHY8X47</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">47.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">5.60</td><td class="rightalign">6.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X40&exchange=OMFE">NHY8X40</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">40.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">1.05</td><td class="rightalign">1.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X44&exchange=OMFE">NHY8X44</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">44.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">3.25</td><td class="rightalign">4.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X52&exchange=OMFE">NHY8X52</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">52.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">10.00</td><td class="rightalign">12.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X52.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X60&exchange=OMFE">NHY8X60</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">60.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">18.00</td><td class="rightalign">20.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X60.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X56&exchange=OMFE">NHY8X56</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">56.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">14.00</td><td class="rightalign">16.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X56.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X48&exchange=OMFE">NHY8X48</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">48.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">6.60</td><td class="rightalign">7.60</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X74&exchange=OMFE">NHY8X74</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">74.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">31.50</td><td class="rightalign">34.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X74.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X70&exchange=OMFE">NHY8X70</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">70.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">27.25</td><td class="rightalign">30.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X70.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X66&exchange=OMFE">NHY8X66</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">66.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">23.50</td><td class="rightalign">26.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X62&exchange=OMFE">NHY8X62</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">62.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">20.00</td><td class="rightalign">23.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X58&exchange=OMFE">NHY8X58</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">58.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">16.00</td><td class="rightalign">18.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X54&exchange=OMFE">NHY8X54</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">54.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">12.00</td><td class="rightalign">14.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X50&exchange=OMFE">NHY8X50</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">50.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">8.50</td><td class="rightalign">9.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X46&exchange=OMFE">NHY8X46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">4.80</td><td class="rightalign">5.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X42&exchange=OMFE">NHY8X42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">2.00</td><td class="rightalign">2.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X38&exchange=OMFE">NHY8X38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.50</td><td class="rightalign">0.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X34&exchange=OMFE">NHY8X34</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">34.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.01</td><td class="rightalign">0.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M50&exchange=OMFE">NHY9M50</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">50.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">8.50</td><td class="rightalign">9.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M49&exchange=OMFE">NHY9M49</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">49.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">7.80</td><td class="rightalign">8.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M49.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M36&exchange=OMFE">NHY9M36</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">36.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.50</td><td class="rightalign">1.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M37&exchange=OMFE">NHY9M37</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">37.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.65</td><td class="rightalign">1.00</td><td>&nbsp;</td>
+<td class="rightalign">13 000</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M38&exchange=OMFE">NHY9M38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">0.90</td><td class="rightalign">1.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M39&exchange=OMFE">NHY9M39</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">39.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">1.20</td><td class="rightalign">1.65</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M40&exchange=OMFE">NHY9M40</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">40.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">1.60</td><td class="rightalign">2.05</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M41&exchange=OMFE">NHY9M41</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">41.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">2.00</td><td class="rightalign">2.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M42&exchange=OMFE">NHY9M42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">2.55</td><td class="rightalign">3.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M48&exchange=OMFE">NHY9M48</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">48.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">6.80</td><td class="rightalign">7.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M47&exchange=OMFE">NHY9M47</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">47.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">6.00</td><td class="rightalign">6.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M46&exchange=OMFE">NHY9M46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">5.20</td><td class="rightalign">6.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M45&exchange=OMFE">NHY9M45</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">45.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">4.40</td><td class="rightalign">5.10</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M44&exchange=OMFE">NHY9M44</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">44.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">3.75</td><td class="rightalign">4.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M43&exchange=OMFE">NHY9M43</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">43.00</td><td class="rightalign">18/01-2019</td>
+<td class="rightalign">3.10</td><td class="rightalign">3.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N36&exchange=OMFE">NHY9N36</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">36.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">0.90</td><td class="rightalign">1.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N48&exchange=OMFE">NHY9N48</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">48.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">7.00</td><td class="rightalign">8.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N37&exchange=OMFE">NHY9N37</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">37.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.15</td><td class="rightalign">1.60</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N37.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N38&exchange=OMFE">NHY9N38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.45</td><td class="rightalign">1.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N39&exchange=OMFE">NHY9N39</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">39.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">1.80</td><td class="rightalign">2.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N39.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N40&exchange=OMFE">NHY9N40</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">40.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">2.20</td><td class="rightalign">2.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N41&exchange=OMFE">NHY9N41</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">41.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">2.65</td><td class="rightalign">3.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N41.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N42&exchange=OMFE">NHY9N42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">3.15</td><td class="rightalign">3.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N47&exchange=OMFE">NHY9N47</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">47.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">6.40</td><td class="rightalign">7.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N47.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N46&exchange=OMFE">NHY9N46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">5.70</td><td class="rightalign">6.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N45&exchange=OMFE">NHY9N45</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">45.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">5.00</td><td class="rightalign">5.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N45.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N44&exchange=OMFE">NHY9N44</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">44.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">4.30</td><td class="rightalign">5.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N43&exchange=OMFE">NHY9N43</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">43.00</td><td class="rightalign">15/02-2019</td>
+<td class="rightalign">3.65</td><td class="rightalign">4.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9N43.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O29&exchange=OMFE">NHY9O29</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">29.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.20</td><td class="rightalign">0.45</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O29.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O30&exchange=OMFE">NHY9O30</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">30.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.30</td><td class="rightalign">0.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O32&exchange=OMFE">NHY9O32</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">32.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.50</td><td class="rightalign">1.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O32.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O36&exchange=OMFE">NHY9O36</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">36.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">1.20</td><td class="rightalign">1.65</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O36.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O56&exchange=OMFE">NHY9O56</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">56.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">14.00</td><td class="rightalign">16.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O56.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O40&exchange=OMFE">NHY9O40</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">40.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">2.60</td><td class="rightalign">3.15</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O40.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O44&exchange=OMFE">NHY9O44</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">44.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">4.70</td><td class="rightalign">5.40</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O44.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O52&exchange=OMFE">NHY9O52</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">52.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">10.25</td><td class="rightalign">12.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O52.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O48&exchange=OMFE">NHY9O48</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">48.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">7.50</td><td class="rightalign">8.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O48.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O66&exchange=OMFE">NHY9O66</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">66.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">23.50</td><td class="rightalign">26.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O62&exchange=OMFE">NHY9O62</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">62.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">20.00</td><td class="rightalign">23.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O58&exchange=OMFE">NHY9O58</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">58.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">16.00</td><td class="rightalign">18.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O54&exchange=OMFE">NHY9O54</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">54.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">12.25</td><td class="rightalign">14.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O50&exchange=OMFE">NHY9O50</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">50.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">9.00</td><td class="rightalign">10.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O46&exchange=OMFE">NHY9O46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">6.00</td><td class="rightalign">6.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O42&exchange=OMFE">NHY9O42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">3.55</td><td class="rightalign">4.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O38&exchange=OMFE">NHY9O38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">1.80</td><td class="rightalign">2.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O34&exchange=OMFE">NHY9O34</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">34.00</td><td class="rightalign">15/03-2019</td>
+<td class="rightalign">0.75</td><td class="rightalign">1.20</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R26&exchange=OMFE">NHY9R26</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">26.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.45</td><td class="rightalign">0.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R26.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R28&exchange=OMFE">NHY9R28</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">28.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.50</td><td class="rightalign">1.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R28.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R30&exchange=OMFE">NHY9R30</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">30.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">0.80</td><td class="rightalign">1.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R34&exchange=OMFE">NHY9R34</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">34.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">1.75</td><td class="rightalign">2.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R38&exchange=OMFE">NHY9R38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">3.15</td><td class="rightalign">3.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R42&exchange=OMFE">NHY9R42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">5.20</td><td class="rightalign">6.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R46&exchange=OMFE">NHY9R46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">7.80</td><td class="rightalign">8.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R50&exchange=OMFE">NHY9R50</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">50.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">10.75</td><td class="rightalign">11.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R66&exchange=OMFE">NHY9R66</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">66.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">24.75</td><td class="rightalign">27.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R66.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R62&exchange=OMFE">NHY9R62</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">62.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">20.50</td><td class="rightalign">23.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R58&exchange=OMFE">NHY9R58</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">58.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">17.25</td><td class="rightalign">19.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R54&exchange=OMFE">NHY9R54</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">54.00</td><td class="rightalign">21/06-2019</td>
+<td class="rightalign">14.25</td><td class="rightalign">15.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U26&exchange=OMFE">NHY9U26</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">26.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">0.55</td><td class="rightalign">1.05</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U26.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U28&exchange=OMFE">NHY9U28</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">28.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">0.85</td><td class="rightalign">1.35</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U28.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U30&exchange=OMFE">NHY9U30</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">30.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">1.25</td><td class="rightalign">1.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U30.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U62&exchange=OMFE">NHY9U62</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">62.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">20.75</td><td class="rightalign">23.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U62.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U34&exchange=OMFE">NHY9U34</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">34.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">2.25</td><td class="rightalign">2.90</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U34.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U38&exchange=OMFE">NHY9U38</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">38.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">3.80</td><td class="rightalign">4.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U38.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U42&exchange=OMFE">NHY9U42</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">42.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">5.80</td><td class="rightalign">6.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U42.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U58&exchange=OMFE">NHY9U58</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">58.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">17.75</td><td class="rightalign">19.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U58.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U54&exchange=OMFE">NHY9U54</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">54.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">14.50</td><td class="rightalign">15.75</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U54.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U50&exchange=OMFE">NHY9U50</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">50.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">11.25</td><td class="rightalign">12.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U50.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U46&exchange=OMFE">NHY9U46</a></td>
+<td class="leftalign">American put</td>
+<td class="rightalign">46.00</td><td class="rightalign">20/09-2019</td>
+<td class="rightalign">8.25</td><td class="rightalign">9.25</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U46.OMFE">Handle</a></td>
+</tr>
+<tr>
+<th class="top" colspan="9">Exchange traded notes</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X5-VON&exchange=NGM">BULL-NHY-X5-VON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">2.50</td><td class="rightalign">2.59</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X5-VON.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X4-CZ&exchange=NGM">BULL-NHY-X4-CZ</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">27.17</td><td class="rightalign">27.83</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X4-CZ.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X3-VON&exchange=NGM">BULL-NHY-X3-VON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">35.39</td><td class="rightalign">36.16</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X3-VON.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X3-CZ2&exchange=NGM">BULL-NHY-X3-CZ2</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">5.50</td><td class="rightalign">5.59</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X3-CZ2.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X2-CZ2&exchange=NGM">BULL-NHY-X2-CZ2</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">8.15</td><td class="rightalign">8.24</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X2-CZ2.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X5-VON2&exchange=NGM">BEAR-NHY-X5-VON2</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">24.34</td><td class="rightalign">26.12</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X5-VON2.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X5-VON&exchange=NGM">BEAR-NHY-X5-VON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.31</td><td class="rightalign">0.32</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X5-VON.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X4-CZ&exchange=NGM">BEAR-NHY-X4-CZ</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">3.35</td><td class="rightalign">3.42</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X4-CZ.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-VON&exchange=NGM">BEAR-NHY-X3-VON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">10.43</td><td class="rightalign">10.66</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-VON.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-CZ2&exchange=NGM">BEAR-NHY-X3-CZ2</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">3.34</td><td class="rightalign">3.39</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-CZ2.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-CZ&exchange=NGM">BEAR-NHY-X3-CZ</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">0.29</td><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-CZ.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X2-CZ2&exchange=NGM">BEAR-NHY-X2-CZ2</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">5.63</td><td class="rightalign">5.69</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X2-CZ2.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-HA&exchange=OSE">BULL-NHY-HA</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">16/05-2040</td>
+<td class="rightalign">27.95</td><td class="rightalign">28.09</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-HA.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-HA&exchange=OSE">BEAR-NHY-HA</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">16/05-2040</td>
+<td class="rightalign">5.42</td><td class="rightalign">5.45</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-HA.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-DNM&exchange=OSE">BULL-NHY-DNM</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">14/02-2041</td>
+<td class="rightalign">13.06</td><td class="rightalign">13.10</td><td class="rightalign">13.22</td><td class="rightalign">22 600</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-DNM.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-DNM&exchange=OSE">BEAR-NHY-DNM</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">14/02-2041</td>
+<td class="rightalign">2.72</td><td class="rightalign">2.74</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-DNM.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X3-DNM&exchange=OSE">BULL-NHY-X3-DNM</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">04/04-2044</td>
+<td class="rightalign">24.40</td><td class="rightalign">24.50</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X3-DNM.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-DNM&exchange=OSE">BEAR-NHY-X3-DNM</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">04/04-2044</td>
+<td class="rightalign">5.29</td><td class="rightalign">5.32</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-DNM.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=SHORT-NHY-DNM&exchange=OSE">SHORT-NHY-DNM</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">10/05-2046</td>
+<td class="rightalign">14.54</td><td class="rightalign">14.57</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=SHORT-NHY-DNM.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X3-ND1&exchange=OSE">BULL-NHY-X3-ND1</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">37.67</td><td class="rightalign">37.86</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X3-ND1.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X2-ND&exchange=OSE">BULL-NHY-X2-ND</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">55.30</td><td class="rightalign">55.55</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X2-ND.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X1-ND&exchange=OSE">BEAR-NHY-X1-ND</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">123.20</td><td class="rightalign">123.70</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X1-ND.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X2-ND&exchange=OSE">BEAR-NHY-X2-ND</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">145.15</td><td class="rightalign">145.80</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X2-ND.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-ND1&exchange=OSE">BEAR-NHY-X3-ND1</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">163.50</td><td class="rightalign">164.30</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-ND1.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULLNHYX3NON&exchange=OSE">BULLNHYX3NON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">22.98</td><td class="rightalign">23.08</td><td class="rightalign">22.82</td><td class="rightalign">58 630</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULLNHYX3NON.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULLNHYX2NON&exchange=OSE">BULLNHYX2NON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">33.85</td><td class="rightalign">33.99</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULLNHYX2NON.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BULL-NHY-X3-ND&exchange=OSE">BULL-NHY-X3-ND</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">62.70</td><td class="rightalign">63.00</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BULL-NHY-X3-ND.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEARNHYX3NON&exchange=OSE">BEARNHYX3NON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">33.04</td><td class="rightalign">33.18</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEARNHYX3NON.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEARNHYX2NON&exchange=OSE">BEARNHYX2NON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">42.79</td><td class="rightalign">42.96</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEARNHYX2NON.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEARNHYX1NON&exchange=OSE">BEARNHYX1NON</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">49.20</td><td class="rightalign">49.37</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEARNHYX1NON.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=BEAR-NHY-X3-ND&exchange=OSE">BEAR-NHY-X3-ND</a></td>
+<td class="leftalign">Exchange traded notes</td>
+<td>&nbsp;</td>
+<td class="rightalign">31/12-3999</td>
+<td class="rightalign">2.40</td><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=BEAR-NHY-X3-ND.OSE">Handle</a></td>
+</tr>
+<tr>
+<th class="top" colspan="9">Futures</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT8X&exchange=OMFE">NHYFUT8X</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT8X.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY8X&exchange=OMFE">NHY8X</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">21/12-2018</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY8X.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9M&exchange=OMFE">NHY9M</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">18/01-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9M.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT9M&exchange=OMFE">NHYFUT9M</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">18/01-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT9M.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9N&exchange=OMFE">NHY9N</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">15/02-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT9N&exchange=OMFE">NHYFUT9N</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">15/02-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT9N.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT9O&exchange=OMFE">NHYFUT9O</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">15/03-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT9O.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9O&exchange=OMFE">NHY9O</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">15/03-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9O.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9R&exchange=OMFE">NHY9R</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">21/06-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9R.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT9R&exchange=OMFE">NHYFUT9R</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">21/06-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT9R.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHY9U&exchange=OMFE">NHY9U</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">20/09-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHY9U.OMFE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYFUT9U&exchange=OMFE">NHYFUT9U</a></td>
+<td class="leftalign">Futures</td>
+<td>&nbsp;</td>
+<td class="rightalign">20/09-2019</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYFUT9U.OMFE">Handle</a></td>
+</tr>
+<tr>
+<th class="top" colspan="9">Warrants</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYW18L75HA&exchange=OSE">NHYW18L75HA</a></td>
+<td class="leftalign">Warrants</td>
+<td class="rightalign">75.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.02</td><td class="rightalign">0.03</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYW18L75HA.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYW18L65HA&exchange=OSE">NHYW18L65HA</a></td>
+<td class="leftalign">Warrants</td>
+<td class="rightalign">65.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.02</td><td class="rightalign">0.03</td><td class="rightalign">0.02</td><td class="rightalign">509 000</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYW18L65HA.OSE">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=NHYW18L55HA&exchange=OSE">NHYW18L55HA</a></td>
+<td class="leftalign">Warrants</td>
+<td class="rightalign">55.00</td><td class="rightalign">21/12-2018</td>
+<td class="rightalign">0.04</td><td class="rightalign">0.05</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=NHYW18L55HA.OSE">Handle</a></td>
+</tr>
+<tr>
+<th class="top" colspan="9">Knockoutwarrant</th>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-SHRTNHY-AE-CZK&exchange=NGM">B-SHRTNHY-AE-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">29.40</td><td class="rightalign">29.61</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-SHRTNHY-AE-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-SHRTNHY-AD-CZK&exchange=NGM">B-SHRTNHY-AD-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">24.36</td><td class="rightalign">24.57</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-SHRTNHY-AD-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-Y-CZK&exchange=NGM">B-LONGNHY-Y-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">4.74</td><td class="rightalign">4.95</td><td class="rightalign">5.56</td><td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-Y-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-X-CZK&exchange=NGM">B-LONGNHY-X-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">7.77</td><td class="rightalign">7.98</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-X-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-W-CZK&exchange=NGM">B-LONGNHY-W-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">10.84</td><td class="rightalign">11.05</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-W-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-F-CZK&exchange=NGM">B-LONGNHY-F-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">13.98</td><td class="rightalign">14.19</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-F-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-D-CZK&exchange=NGM">B-LONGNHY-D-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">3.20</td><td class="rightalign">3.24</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-D-CZK.NGM">Handle</a></td>
+</tr>
+<tr>
+<td class="leftalign"><a href="ppaper.php?paper=B-LONGNHY-C-CZK&exchange=NGM">B-LONGNHY-C-CZK</a></td>
+<td class="leftalign">Knockoutwarrant</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td class="rightalign">3.68</td><td class="rightalign">3.72</td><td>&nbsp;</td>
+<td class="rightalign">&nbsp;</td>
+<td class="leftalign"><a href="https://www.netfonds.no/account/order.php?paper=B-LONGNHY-C-CZK.NGM">Handle</a></td>
+</tr>
+</table>
+</div></div><script  language="JavaScript" type="text/javascript">decorateSearch("papersearch");</script>
+<script  language="JavaScript" type="text/javascript">decorateSearch("hiddensearchbox");</script>
+<div id="pagefooter">
+  <span class="hbottommenu">
+    <a href="layout.php">Utforming</a>&nbsp;|&nbsp;
+
+    <a href="https://www.netfonds.no/personvern.php">Personvern</a>
+      </span>
+  
+  <span class="hbottomlinestop">
+    &nbsp;Åpne markeder: <a href="market.php?exchange=O">Nasdaq</a>, <a href="market.php?exchange=N">Nyse</a>, <a href="market.php?exchange=A">Amex</a>  </span>
+  <span id=toptime>
+    fredag 23/11-2018 18:30:05  </span>
+  
+  
+  <div class="end-comstock">
+      </div>
+</div>
+
+</div>
+</body>
+</html>

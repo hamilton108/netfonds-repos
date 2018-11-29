@@ -40,6 +40,14 @@ dependencies {
     aspectjTask "org.aspectj:aspectjrt:$aspectjVersion"
     aspectjTask "org.aspectj:aspectjtools:$aspectjVersion"
     aspectjTask "org.aspectj:aspectjweaver:$aspectjVersion"
+
+    //------------------- test -------------------
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 

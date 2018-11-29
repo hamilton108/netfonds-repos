@@ -1,14 +1,17 @@
 package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
+import critterrepos.beans.options.DerivativeBean;
 import critterrepos.beans.options.DerivativePriceBean;
 import oahu.dto.Tuple;
 import oahu.dto.Tuple3;
 import oahu.financial.Derivative;
 import oahu.financial.DerivativePrice;
+import oahu.financial.Stock;
 import oahu.financial.StockPrice;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.EtradeRepository;
+import oahu.financial.repository.StockMarketRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class EtradeRepository2 implements
@@ -27,6 +31,8 @@ public class EtradeRepository2 implements
 
     private Map<String,Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>>
     stoxPutsCalls = null;
+    private StockMarketRepository stockMarketRepository;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yyyy");
 
     //region interface EtradeRepository
     @Override
@@ -69,6 +75,7 @@ public class EtradeRepository2 implements
             Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
                     result = stoxPutsCalls.get(ticker);
             if (result == null) {
+                Stock stock = stockMarketRepository.findStock(ticker);
                 Page page = downloader.downloadDerivatives(ticker);
                 Document doc = Jsoup.parse(page.getWebResponse().getContentAsString());
                 Element top = doc.getElementsByClass("com topmargin").first();
@@ -78,7 +85,7 @@ public class EtradeRepository2 implements
 
                 Collection<DerivativePrice> calls = new ArrayList<>();
                 for (Element el : rawCalls) {
-                    DerivativePrice call = processElement(el.parent());
+                    DerivativePrice call = processElement(el.parent(), Derivative.OptionType.CALL, stock);
                     if (call != null) {
                         calls.add(call);
                     }
@@ -92,23 +99,63 @@ public class EtradeRepository2 implements
             return null;
         }
     }
-    private DerivativePrice processElement(Element el) {
+    Document getDocument(String ticker) throws IOException {
+        Page page = downloader.downloadDerivatives(ticker);
+        return Jsoup.parse(page.getWebResponse().getContentAsString());
+    }
+    DerivativePrice processElement(Element el, Derivative.OptionType optionType, Stock stock) {
         int sz = el.childNodeSize();
         if (sz < 15) {
             return null;
         }
-        Element buyEl = el.child(4);
-        Element sellEl = el.child(5);
-
         try {
+            Element buyEl = el.child(4);
+            Element sellEl = el.child(5);
             double buy = Double.parseDouble(buyEl.text());
             double sell = Double.parseDouble(sellEl.text());
-            DerivativePrice bean = new DerivativePriceBean(null, buy, sell, null);
+
+            Element optionNameEl = el.child(0);
+            Optional<Derivative> derivative = stockMarketRepository.findDerivative(optionNameEl.text());
+            if (!derivative.isPresent()) {
+                derivative = createNewDerivative(el,optionType,stock);
+            }
+            if (!derivative.isPresent()) {
+                return null;
+            }
+            stockMarketRepository.insertDerivative(derivative.get(),null);
+
+            DerivativePrice bean = new DerivativePriceBean(derivative.get(), buy, sell, null);
             return bean;
         }
         catch (NumberFormatException ex) {
             return null;
         }
+    }
+
+    Optional<Derivative> createNewDerivative(Element el, Derivative.OptionType optionType, Stock stock) {
+        try {
+            DerivativeBean derivative2 = new DerivativeBean();
+            derivative2.setLifeCycle(Derivative.LifeCycle.FROM_HTML);
+            derivative2.setOpType(optionType);
+
+            String optionName = el.child(0).text();
+            double x = Double.parseDouble(el.child(2).text());
+            LocalDate exp = LocalDate.parse(el.child(3).text(), formatter);
+
+            derivative2.setTicker(optionName);
+            derivative2.setX(x);
+            derivative2.setExpiry(exp);
+            derivative2.setStock(stock);
+
+            return Optional.of(derivative2);
+        }
+        catch (NumberFormatException ex) {
+            return Optional.empty();
+        }
+    }
+    Optional<StockPrice> getStockPrice(Document doc) {
+        Element top = doc.getElementsByClass("com topmargin").first();
+        return Optional.empty();
     }
     //endregion
 
@@ -148,5 +195,9 @@ public class EtradeRepository2 implements
     public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
         this.downloader = downloader;
     }
+    public void setStockMarketRepository(StockMarketRepository stockMarketRepository) {
+        this.stockMarketRepository = stockMarketRepository;
+    }
+
     //endregion Properties
 }

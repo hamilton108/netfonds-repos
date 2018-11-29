@@ -15,6 +15,10 @@ public class MockDownloader implements EtradeDownloader<Page, Serializable> {
     private HashMap<String,Integer> counterMap;
     private boolean applyCounter = false;
 
+    public MockDownloader(String storePath) {
+        this();
+        this.storePath = storePath;
+    }
     public MockDownloader() {
         webClient = new WebClient();
         webClient.getOptions().setJavaScriptEnabled(isJavaScriptEnabled());
