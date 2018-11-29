@@ -1,6 +1,7 @@
 package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
+import critterrepos.beans.StockPriceBean;
 import critterrepos.beans.options.DerivativeBean;
 import critterrepos.beans.options.DerivativePriceBean;
 import oahu.dto.Tuple;
@@ -15,6 +16,7 @@ import oahu.financial.repository.StockMarketRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.IOException;
@@ -99,10 +101,23 @@ public class EtradeRepository2 implements
             return null;
         }
     }
+    //endregion
+
+    //region Properties
+    public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
+        this.downloader = downloader;
+    }
+    public void setStockMarketRepository(StockMarketRepository stockMarketRepository) {
+        this.stockMarketRepository = stockMarketRepository;
+    }
+    //endregion Properties
+
+    //region Private/Package Accessible methods
     Document getDocument(String ticker) throws IOException {
         Page page = downloader.downloadDerivatives(ticker);
         return Jsoup.parse(page.getWebResponse().getContentAsString());
     }
+
     DerivativePrice processElement(Element el, Derivative.OptionType optionType, Stock stock) {
         int sz = el.childNodeSize();
         if (sz < 15) {
@@ -153,51 +168,70 @@ public class EtradeRepository2 implements
             return Optional.empty();
         }
     }
-    Optional<StockPrice> getStockPrice(Document doc) {
-        Element top = doc.getElementsByClass("com topmargin").first();
-        return Optional.empty();
+
+    Optional<StockPrice> createStockPrice(Document doc, Stock stock) {
+        Element top = doc.getElementById("updatetable1");
+        if (top == null) {
+            return Optional.empty();
+        }
+        Element closeEl = top.getElementById("ju.l");
+        Elements openEl = top.getElementsByAttributeValue("name","ju.op");
+        Elements hiEl = top.getElementsByAttributeValue("name","ju.h");
+        Elements loEl = top.getElementsByAttributeValue("name","ju.lo");
+        if ((closeEl == null)
+            || openEl.isEmpty()
+            || hiEl.isEmpty()
+            || loEl.isEmpty()) {
+            return Optional.empty();
+        }
+        try {
+            double close = Double.parseDouble(closeEl.text());
+            double open = Double.parseDouble(openEl.text());
+            double hi = Double.parseDouble(hiEl.text());
+            double lo = Double.parseDouble(loEl.text());
+
+            StockPriceBean result = new StockPriceBean(LocalDate.now(), open, hi, lo, close, 0);
+            result.setStock(stock);
+            return Optional.of(result);
+        }
+        catch (NumberFormatException ex) {
+            return Optional.empty();
+        }
     }
-    //endregion
 
-    //region Private Methods
+    Elements findRawOptions(Document doc, boolean isCalls) {
+        String search = isCalls ? "American call" : "American put";
+        Elements result = doc.getElementsContainingOwnText(search);
+        return result;
+    }
 
-    /*
-    private Collection<DerivativePrice> getDerivatives() {
-        if (derivativePrices == null) {
-            derivativePrices = new ArrayList<>();
-            try {
-                Page page = downloader.downloadDerivatives();
-                String[] splits = splitContents(page);
-                int counter = 0;
-                for (String s : splits) {
-                    if (counter > 0) {
-                        derivativePrices.add(fromStringRow(s));
-                    }
-                    ++counter;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+    private DerivativePrice createDerivativePrice(Element el, Derivative derivative) {
+        int sz = el.childNodeSize();
+        if (sz < 15) {
+            return null;
+        }
+        try {
+            Element buyEl = el.child(4);
+            Element sellEl = el.child(5);
+            double buy = Double.parseDouble(buyEl.text());
+            double sell = Double.parseDouble(sellEl.text());
+            DerivativePrice bean = new DerivativePriceBean(derivative, buy, sell, null);
+            return bean;
+        } catch (NumberFormatException ex) {
+            return null;
+        }
+    }
+
+    List<DerivativePrice> createDerivativePrices(Elements rawOptions) {
+        List<DerivativePrice> result = new ArrayList<>();
+        for (Element el : rawOptions) {
+            //DerivativePrice price = processElement(el.parent(), Derivative.OptionType.CALL, stock);
+            DerivativePrice price = createDerivativePrice(el.parent(), null);
+            if (price != null) {
+                result.add(price);
             }
         }
-        return derivativePrices;
+        return result;
     }
-    public String[] splitContents(Page page) {
-        String content = page.getWebResponse().getContentAsString();
-        return content.split("\\n");
-    }
-    public DerivativePrice fromStringRow(String row) {
-        return null;
-    }
-    //*/
     //endregion
-
-    //region Properties
-    public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
-        this.downloader = downloader;
-    }
-    public void setStockMarketRepository(StockMarketRepository stockMarketRepository) {
-        this.stockMarketRepository = stockMarketRepository;
-    }
-
-    //endregion Properties
 }
