@@ -78,6 +78,29 @@ public class EtradeRepository2 implements
                     result = stoxPutsCalls.get(ticker);
             if (result == null) {
                 Stock stock = stockMarketRepository.findStock(ticker);
+                Document doc = getDocument(ticker);
+                Optional<StockPrice> stockPrice = createStockPrice(doc, stock);
+                Elements rawCalls = findRawOptions(doc, true);
+                List<DerivativePrice> calls = createDerivativePrices(rawCalls);
+                result = new Tuple3<>(stockPrice, calls, null);
+                stoxPutsCalls.put(ticker, result);
+            }
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+            //throw new RuntimeException(e);
+            return null;
+        }
+
+        /*
+        try {
+            if (stoxPutsCalls == null) {
+                stoxPutsCalls = new HashMap<>();
+            }
+            Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
+                    result = stoxPutsCalls.get(ticker);
+            if (result == null) {
+                Stock stock = stockMarketRepository.findStock(ticker);
                 Page page = downloader.downloadDerivatives(ticker);
                 Document doc = Jsoup.parse(page.getWebResponse().getContentAsString());
                 Element top = doc.getElementsByClass("com topmargin").first();
@@ -100,6 +123,7 @@ public class EtradeRepository2 implements
             ex.printStackTrace();
             return null;
         }
+        */
     }
     //endregion
 
@@ -118,6 +142,7 @@ public class EtradeRepository2 implements
         return Jsoup.parse(page.getWebResponse().getContentAsString());
     }
 
+    /*
     DerivativePrice processElement(Element el, Derivative.OptionType optionType, Stock stock) {
         int sz = el.childNodeSize();
         if (sz < 15) {
@@ -146,6 +171,7 @@ public class EtradeRepository2 implements
             return null;
         }
     }
+    //*/
 
     Optional<Derivative> createNewDerivative(Element el, Derivative.OptionType optionType, Stock stock) {
         try {
