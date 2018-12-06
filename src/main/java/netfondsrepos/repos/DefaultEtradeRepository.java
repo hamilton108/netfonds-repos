@@ -281,6 +281,11 @@ public class DefaultEtradeRepository implements
         }
     }
 
+    @Override
+    public void invalidateCache() {
+
+    }
+
     private Consumer<DerivativePrice> postProcessor(StockPrice p) {
         return (d) -> {
             DerivativePriceBean callx = (DerivativePriceBean)d;

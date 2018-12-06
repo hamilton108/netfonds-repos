@@ -125,6 +125,11 @@ public class EtradeRepository2 implements
         }
         */
     }
+
+    @Override
+    public void invalidateCache() {
+
+    }
     //endregion
 
     //region Properties
