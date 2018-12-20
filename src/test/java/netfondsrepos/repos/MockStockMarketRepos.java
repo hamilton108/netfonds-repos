@@ -6,20 +6,24 @@ import oahu.financial.*;
 import oahu.financial.repository.StockMarketRepository;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class MockStockMarketRepos implements StockMarketRepository {
+    Map<String,Derivative> derivativeMap = new HashMap<>();
+
     @Override
     public void insertDerivative(Derivative derivative, Consumer<Exception> errorHandler) {
-
+        derivativeMap.put(derivative.getTicker(), derivative);
     }
 
     @Override
     public Optional<Derivative> findDerivative(String derivativeTicker) {
-        return Optional.empty();
+        Derivative result = derivativeMap.get(derivativeTicker);
+        if (result == null) {
+            return Optional.empty();
+        }
+        return Optional.of(result);
     }
 
     @Override
