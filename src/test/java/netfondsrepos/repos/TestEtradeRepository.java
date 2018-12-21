@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -76,8 +77,22 @@ public class TestEtradeRepository {
 
         Tuple<String> optionInfo = new Tuple<>("NHY","NHY9I30");
         Optional<DerivativePrice> opx = repos.findDerivativePrice(optionInfo);
-        assertNotEquals(Optional.empty(), opx, "Opx is Optional.empty()");
-
+        assertNotEquals(Optional.empty(), opx, String.format("Opx is Optional.empty() for %s", optionInfo.second()));
+        validateDerivativePrice(opx.get());
+    }
+    private void validateDerivativePrice(DerivativePrice p) {
+        Derivative d = p.getDerivative();
+        assertNotNull(d);
+        double x = 30.0;
+        assertEquals(x, d.getX(), 0.01, String.format("X not %.2f", x));
+        LocalDate date = LocalDate.of(2019,9,20);
+        assertEquals(date, d.getExpiry(), String.format("Expiry not %s", date));
+        Derivative.OptionType optionType = Derivative.OptionType.CALL;
+        assertEquals(optionType, d.getOpType(), String.format("Options type not %s", optionType));
+        double buy = 11.25;
+        assertEquals(buy, p.getBuy(), 0.01, String.format("Buy not %.2f", buy));
+        double sell = 13.25;
+        assertEquals(sell, p.getSell(), 0.01, String.format("Sell not %.2f", sell));
     }
     private void validateRawOptions(Elements options, int expected, boolean isCalls) {
         String opTypw = isCalls ? "Calls" : "Puts";
