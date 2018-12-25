@@ -1,12 +1,10 @@
 package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
+import netfondsrepos.calculator.BlackScholesStub;
 import netfondsrepos.downloader.MockDownloader;
 import oahu.dto.Tuple;
-import oahu.financial.Derivative;
-import oahu.financial.DerivativePrice;
-import oahu.financial.Stock;
-import oahu.financial.StockPrice;
+import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.StockMarketRepository;
 import org.jsoup.nodes.Document;
@@ -29,6 +27,7 @@ public class TestEtradeRepository {
     private static String storePath = "/home/rcs/opt/java/netfonds-repos/src/test/resources";
     private static final EtradeDownloader<Page, Serializable> downloader = new MockDownloader(storePath);
     private static final StockMarketRepository stockMarketRepos = new MockStockMarketRepos();
+    private static final OptionCalculator calculator = new BlackScholesStub();
 
     @DisplayName("Test EtradeRepository2 fetching calls and puts")
     @Test
@@ -37,6 +36,7 @@ public class TestEtradeRepository {
         EtradeRepository2 repos = new EtradeRepository2();
         repos.setDownloader(downloader);
         repos.setStockMarketRepository(stockMarketRepos);
+        repos.setOptionCalculator(calculator);
 
         Stock stock = stockMarketRepos.findStock(ticker);
 
@@ -53,7 +53,7 @@ public class TestEtradeRepository {
         Elements rawPuts = repos.findRawOptions(doc, false);
         validateRawOptions(rawPuts, 103, false);
 
-        List<DerivativePrice> calls = repos.createDerivativePrices(rawCalls,Derivative.OptionType.CALL, stock);
+        List<DerivativePrice> calls = repos.createDerivativePrices(rawCalls,Derivative.OptionType.CALL, stockPrice.get());
         assertEquals(91, calls.size(), "Calls size not 91");
 
         Collection<DerivativePrice> calls2 = repos.calls(ticker);
@@ -93,6 +93,11 @@ public class TestEtradeRepository {
         assertEquals(buy, p.getBuy(), 0.01, String.format("Buy not %.2f", buy));
         double sell = 13.25;
         assertEquals(sell, p.getSell(), 0.01, String.format("Sell not %.2f", sell));
+
+        double ivBuy = 4.25;
+        Optional<Double> maybeIvBuy = p.getIvBuy();
+        assertNotEquals(Optional.empty(), maybeIvBuy, "maybeIvBuy was empty");
+        assertEquals(ivBuy, maybeIvBuy.get(), 0.01, String.format("IvBuy not %.2f", ivBuy));
     }
     private void validateRawOptions(Elements options, int expected, boolean isCalls) {
         String opTypw = isCalls ? "Calls" : "Puts";

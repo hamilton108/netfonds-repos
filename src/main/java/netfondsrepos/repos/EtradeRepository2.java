@@ -114,13 +114,13 @@ public class EtradeRepository2 implements
                 Document doc = getDocument(ticker);
 
                 Optional<StockPrice> stockPrice = createStockPrice(doc, stock);
-
+                StockPrice spParam = stockPrice.isPresent() ? stockPrice.get() : null;
 
                 Elements rawCalls = findRawOptions(doc, true);
-                List<DerivativePrice> calls = createDerivativePrices(rawCalls, Derivative.OptionType.CALL, stock);
+                List<DerivativePrice> calls = createDerivativePrices(rawCalls, Derivative.OptionType.CALL, spParam);
 
                 Elements rawPuts = findRawOptions(doc, false);
-                List<DerivativePrice> puts = createDerivativePrices(rawPuts, Derivative.OptionType.PUT, stock);
+                List<DerivativePrice> puts = createDerivativePrices(rawPuts, Derivative.OptionType.PUT, spParam);
 
                 result = new Tuple3<>(stockPrice, calls, puts);
                 stoxPutsCalls.put(ticker, result);
@@ -221,10 +221,10 @@ public class EtradeRepository2 implements
     }
 
 
-    List<DerivativePrice> createDerivativePrices(Elements rawOptions, Derivative.OptionType optionType, Stock stock) {
+    List<DerivativePrice> createDerivativePrices(Elements rawOptions, Derivative.OptionType optionType, StockPrice stockPrice) {
         List<DerivativePrice> result = new ArrayList<>();
         for (Element el : rawOptions) {
-            DerivativePrice price = createDerivativePrice(el.parent(), optionType, stock);
+            DerivativePrice price = createDerivativePrice(el.parent(), optionType, stockPrice);
             if (price != null) {
                 result.add(price);
             }
@@ -232,7 +232,7 @@ public class EtradeRepository2 implements
         return result;
     }
 
-    private DerivativePrice createDerivativePrice(Element el, Derivative.OptionType optionType, Stock stock) {
+    private DerivativePrice createDerivativePrice(Element el, Derivative.OptionType optionType, StockPrice stockPrice) {
         int sz = el.childNodeSize();
         if (sz < 15) {
             return null;
@@ -242,11 +242,12 @@ public class EtradeRepository2 implements
             Element sellEl = el.child(5);
             double buy = Double.parseDouble(buyEl.text());
             double sell = Double.parseDouble(sellEl.text());
+            Stock stock = stockPrice == null ? null : stockPrice.getStock();
             Optional<Derivative> derivative = fetchOrCreateDerivative(el, optionType, stock);
             if (!derivative.isPresent()) {
                 return null;
             }
-            DerivativePrice bean = new DerivativePriceBean(derivative.get(), buy, sell, optionCalculator);
+            DerivativePrice bean = new DerivativePriceBean(stockPrice, derivative.get(), buy, sell, optionCalculator);
             return bean;
         } catch (NumberFormatException ex) {
             return null;
@@ -307,6 +308,7 @@ public class EtradeRepository2 implements
             return Optional.empty();
         }
     }
+
     /*
     private double exercisePriceFor(Element el)  {
         Element xEl = el.child(2);
