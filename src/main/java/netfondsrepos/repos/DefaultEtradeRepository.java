@@ -75,6 +75,11 @@ public class DefaultEtradeRepository implements
         return result.first();
     }
 
+    @Override
+    public Optional<StockPrice> stockPrice(int oid) {
+        return Optional.empty();
+    }
+
     public Optional<StockPrice> stockPrice(String ticker, File suppliedFile) {
         Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>
                 result = parseHtmlFor(ticker,suppliedFile);
@@ -87,6 +92,11 @@ public class DefaultEtradeRepository implements
         return putsOrCalls(ticker, false, null);
     }
 
+    @Override
+    public Collection<DerivativePrice> puts(int tickerId) {
+        return null;
+    }
+
     public Collection<DerivativePrice> puts(String ticker, File suppliedFile) {
         return putsOrCalls(ticker, false, suppliedFile);
     }
@@ -95,6 +105,11 @@ public class DefaultEtradeRepository implements
     @ValidateDerivativePrice()
     public Collection<DerivativePrice> calls(String ticker) {
         return putsOrCalls(ticker, true, null);
+    }
+
+    @Override
+    public Collection<DerivativePrice> calls(int tickerId) {
+        return null;
     }
 
     public Collection<DerivativePrice> calls(String ticker, File suppliedFile) {

@@ -5,6 +5,7 @@ import critterrepos.beans.StockPriceBean;
 import critterrepos.beans.options.DerivativeBean;
 import critterrepos.beans.options.DerivativePriceBean;
 import oahu.dto.Tuple;
+import oahu.dto.Tuple2;
 import oahu.dto.Tuple3;
 import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;
@@ -19,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -31,7 +33,10 @@ public class EtradeRepository2 implements
     private Map<String,Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>>
     stoxPutsCalls = null;
     private StockMarketRepository stockMarketRepository;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yyyy");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM-yyyy");
+    private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+    // fredag 23/11-2018 18:30:05
     private OptionCalculator optionCalculator;
 
     //region interface EtradeRepository
@@ -50,11 +55,16 @@ public class EtradeRepository2 implements
     }
 
     @Override
+    public Optional<StockPrice> stockPrice(int oid) {
+        return stockPrice(getTickerFor(oid));
+    }
+    @Override
     public Optional<StockPrice> stockPrice(String ticker) {
         Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
                 parsed = parseHtmlFor(ticker, null);
         return parsed.first();
     }
+
 
     @Override
     public Collection<DerivativePrice> puts(String ticker) {
@@ -64,10 +74,20 @@ public class EtradeRepository2 implements
     }
 
     @Override
+    public Collection<DerivativePrice> puts(int oid) {
+        return puts(getTickerFor(oid));
+    }
+
+    @Override
     public Collection<DerivativePrice> calls(String ticker) {
         Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
                 parsed = parseHtmlFor(ticker, null);
         return parsed.second();
+    }
+
+    @Override
+    public Collection<DerivativePrice> calls(int oid) {
+        return calls(getTickerFor(oid));
     }
 
     @Override
@@ -135,12 +155,20 @@ public class EtradeRepository2 implements
     //endregion Properties
 
     //region Private/Package Accessible methods
+    Map<Integer,String> oid2ticker = new HashMap<>();
+
+    String getTickerFor(int oid) {
+        String ticker = oid2ticker.get(oid);
+        if (ticker == null) {
+            ticker = stockMarketRepository.getTickerFor(oid);
+            oid2ticker.put(oid,ticker);
+        }
+        return ticker;
+    }
     Document getDocument(String ticker) throws IOException {
         Page page = downloader.downloadDerivatives(ticker);
         return Jsoup.parse(page.getWebResponse().getContentAsString());
     }
-
-
 
     Optional<StockPrice> createStockPrice(Document doc, Stock stock) {
         Element top = doc.getElementById("updatetable1");
@@ -152,11 +180,13 @@ public class EtradeRepository2 implements
         Elements hiEl = top.getElementsByAttributeValue("name","ju.h");
         Elements loEl = top.getElementsByAttributeValue("name","ju.lo");
         Elements volEl = top.getElementsByAttributeValue("name","ju.vo");
+        Element timeEl = doc.getElementById("toptime");
         if ((closeEl == null)
             || openEl.isEmpty()
             || hiEl.isEmpty()
             || loEl.isEmpty()
-            || volEl.isEmpty()) {
+            || volEl.isEmpty()
+            || timeEl == null) {
             return Optional.empty();
         }
         try {
@@ -165,14 +195,23 @@ public class EtradeRepository2 implements
             double hi = Double.parseDouble(hiEl.text());
             double lo = Double.parseDouble(loEl.text());
             long vol = Long.parseLong(volEl.text().replaceAll("\\s",""));
-
-            StockPriceBean result = new StockPriceBean(LocalDate.now(), open, hi, lo, close, vol);
+            Tuple2<LocalDate, LocalTime> timeInfo = getTimeInfo(timeEl);
+            StockPriceBean result = new StockPriceBean(timeInfo.first(), timeInfo.second(), open, hi, lo, close, vol);
             result.setStock(stock);
             return Optional.of(result);
         }
         catch (NumberFormatException ex) {
             return Optional.empty();
         }
+    }
+
+    Tuple2<LocalDate, LocalTime> getTimeInfo(Element el) {
+        // fredag 23/11-2018 18:30:05
+        String txt = el.text();
+        String[] txts = txt.split("\\s");
+        LocalDate ld = LocalDate.parse(txts[1], dateFormatter);
+        LocalTime tm = LocalTime.parse(txts[2], timeFormatter);
+        return new Tuple2<>(ld,tm);
     }
 
     Elements findRawOptions(Document doc, boolean isCalls) {
@@ -250,7 +289,8 @@ public class EtradeRepository2 implements
                 derivative2.setOpType(optionType);
 
                 double x = Double.parseDouble(el.child(2).text());
-                LocalDate exp = LocalDate.parse(el.child(3).text(), formatter);
+                String child3txt = el.child(3).text();
+                LocalDate exp = LocalDate.parse(child3txt, dateFormatter);
 
                 derivative2.setTicker(optionName);
                 derivative2.setX(x);
@@ -274,7 +314,7 @@ public class EtradeRepository2 implements
     }
     private LocalDate expiryFor(Element el) {
         String expiry = el.child(3).text();
-        LocalDate exp = LocalDate.parse(expiry, formatter);
+        LocalDate exp = LocalDate.parse(expiry, dateFormatter);
         return LocalDate.now();
     }
     private Derivative.OptionType optionTypeFor(Element el) {
