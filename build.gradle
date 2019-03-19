@@ -2,6 +2,8 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
 
+apply from: '/home/rcs/opt/java/gradlecommon/spring-boot-deps.gradle'
+
 group = 'hamilton108'
 
 //archivesBaseName = 'netfondsrepos'
@@ -17,6 +19,8 @@ repositories {
 dependencies {
     compile project(':oahu')
     compile project(':critter-repos')
+    compile "org.jsoup:jsoup:$jsoupVersion"
+    compile "net.sourceforge.htmlunit:htmlunit:$htmlUnitVersion"
     testCompile "org.springframework.boot:spring-boot-starter-test"
 }
 
