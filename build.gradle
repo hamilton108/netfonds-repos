@@ -19,6 +19,7 @@ repositories {
 dependencies {
     compile project(':oahu')
     compile project(':critter-repos')
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "org.jsoup:jsoup:$jsoupVersion"
     compile "net.sourceforge.htmlunit:htmlunit:$htmlUnitVersion"
     testCompile "org.springframework.boot:spring-boot-starter-test"
