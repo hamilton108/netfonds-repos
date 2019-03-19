@@ -2,7 +2,6 @@ package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
 import netfondsrepos.calculator.BlackScholesStub;
-import netfondsrepos.downloader.MockDownloader;
 import oahu.dto.Tuple;
 import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;

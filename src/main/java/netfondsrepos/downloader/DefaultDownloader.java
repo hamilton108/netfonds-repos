@@ -35,7 +35,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
     }
     */
 
-    private WebClientManager webClientManager;
+    private WebClientManager<Page> webClientManager;
 
 
 

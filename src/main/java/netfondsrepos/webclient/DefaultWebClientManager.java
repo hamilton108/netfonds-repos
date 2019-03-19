@@ -32,9 +32,15 @@ public class DefaultWebClientManager implements WebClientManager {
 
     //region Interface WebClientManager
     @Override
-    public Page getPage(String url) throws IOException {
-        WebClient client = getWebClient();
-        return client.getPage(url);
+    public Page getPage(String url) {
+        try {
+            WebClient client = getWebClient();
+            return client.getPage(url);
+        }
+        catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+
     }
 
     //endregion
@@ -69,14 +75,18 @@ public class DefaultWebClientManager implements WebClientManager {
     }
 
     @Override
-    public Optional<Page> logout() throws IOException {
+    public Optional<Page> logout() {
         log.info("[DefaultWebClientManager] logout()");
         if (loginPage == null) {
             return Optional.empty();
         }
         String logoutAnchor = "https://www.netfonds.no/account/logout.php";
         HtmlAnchor logout = loginPage.getAnchorByHref(logoutAnchor);
-        logoutPage = logout.click();
+        try {
+            logoutPage = logout.click();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
         return Optional.of(logoutPage);
     }
 
