@@ -1,7 +1,6 @@
 package netfondsrepos.contenthandler;
 
 import oahu.financial.html.EtradeBeanFactory;
-import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
@@ -19,7 +18,6 @@ public class DefaultContentHandler implements ContentHandler {
 
     // mandag 11/01-2016 17:59:05</span>
     private Pattern pat = Pattern.compile(".*(\\d\\d)/(\\d\\d)-(\\d\\d\\d\\d).*(\\d\\d):(\\d\\d):(\\d\\d)");
-    Logger log = Logger.getLogger(getClass().getPackage().getName());
 
     private boolean COM_TOPMARGIN = false;
     private boolean UPDATETABLE1 = false;
@@ -146,9 +144,6 @@ public class DefaultContentHandler implements ContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
-        if (log.isDebugEnabled()) {
-            log.debug("startElement");
-        }
         if (localName.equals("table")) {
             if (attValEquals2(atts,"class", "com topmargin")) {
                 COM_TOPMARGIN = true;
@@ -160,15 +155,9 @@ public class DefaultContentHandler implements ContentHandler {
             }
             else if (attValEquals2(atts,"class", "bottomtable")) {
                 BOTTOMTABLE = true;
-                if (log.isDebugEnabled()) {
-                    log.debug("In BOTTOMTABLE");
-                }
             }
             else if (attValEquals2(atts,"class", "hmenustrip")) {
                 HMENUSTRIP = true;
-                if (log.isDebugEnabled()) {
-                    log.debug("In HMENUSTRIP");
-                }
             }
         }
         else if (COM_TOPMARGIN) {
@@ -225,37 +214,18 @@ public class DefaultContentHandler implements ContentHandler {
             }
         }
         else if (BOTTOMTABLE) {
-            if (log.isDebugEnabled()) {
-                log.debug("if BOTTOMTABLE");
-            }
             if (localName.equals("span")) {
-                if (log.isDebugEnabled()) {
-                    log.debug("if localName ==span");
-                }
-
                 if (attValEquals2(atts,"id", "toptime")) {
                     BOTTOMTABLE_SPAN = true;
                     createSpotInUpdatetable = false;
-                    if (log.isDebugEnabled()) {
-                        log.debug("id == toptime, createSpotInUpdatetable = false");
-                    }
                 }
             }
         }
         else if (HMENUSTRIP) {
-            if (log.isDebugEnabled()) {
-                log.debug("if HMENUSTRIP");
-            }
             if (localName.equals("span")) {
-                if (log.isDebugEnabled()) {
-                    log.debug("if localName ==span");
-                }
                 if (attValEquals2(atts,"id", "toptime")) {
                     HMENUSTRIP_SPAN = true;
                     createSpotInUpdatetable = true;
-                    if (log.isDebugEnabled()) {
-                        log.debug("id == toptime, createSpotInUpdatetable = true");
-                    }
                 }
             }
         }
@@ -263,9 +233,6 @@ public class DefaultContentHandler implements ContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (log.isDebugEnabled()) {
-            log.debug("endElement");
-        }
         if (COM_TOPMARGIN) {
             //log.debug("COM_TOPMARGIN");
             if (localName.equals("table")) {
@@ -306,9 +273,6 @@ public class DefaultContentHandler implements ContentHandler {
             }
         }
         else if (UPDATETABLE1) {
-            if (log.isDebugEnabled()) {
-                log.debug("UPDATETABLE1");
-            }
             if (localName.equals("table")) {
                 UPDATETABLE1 = false;
                 if (createSpotInUpdatetable) {
@@ -329,9 +293,6 @@ public class DefaultContentHandler implements ContentHandler {
             }
         }
         else if (BOTTOMTABLE_SPAN) {
-            if (log.isDebugEnabled()) {
-                log.debug("BOTTOMTABLE_SPAN");
-            }
             BOTTOMTABLE_SPAN = false;
             if (!createSpotInUpdatetable) {
                 createSpot();
@@ -371,26 +332,15 @@ public class DefaultContentHandler implements ContentHandler {
             }
         }
         catch (NumberFormatException nex) {
-            log.error(nex.getMessage());
         }
         catch (Exception ex) {
             //System.out.println(ex.getMessage());
             ex.printStackTrace();
-            log.error(ex.getMessage());
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        if (log.isDebugEnabled()) {
-            log.debug(String.format("(characters) char: %s, OPTION_TD: %b, SPOT_TD: %b, BOTTOMTABLE_SPAN: %b, HMENUSTRIP_SPAN: %b, ",
-                    new String(ch,start,length),
-                    OPTION_TD,
-                    SPOT_TD,
-                    //:wString.valueOf(ch),
-                    BOTTOMTABLE_SPAN,
-                    HMENUSTRIP_SPAN));
-        }
         if (OPTION_TD) {
             String tdContent = new String(ch,start,length);
             switch (TD) {
@@ -426,9 +376,6 @@ public class DefaultContentHandler implements ContentHandler {
         else if ((BOTTOMTABLE_SPAN == true) || (HMENUSTRIP_SPAN == true)){
             String tdContent = new String(ch,start,length);
 
-            if (log.isDebugEnabled()) {
-                log.debug("Matcher: " + tdContent);
-            }
             // mandag 11/01-2016 17:59:05</span>
 
             //(".*(\\d\\d)/(\\d\\d)-(\\d\\d\\d\\d).*(\\d\\d):(\\d\\d):(\\d\\d)")
@@ -443,14 +390,8 @@ public class DefaultContentHandler implements ContentHandler {
                 int seconds = Integer.parseInt(m.group(6));
                 spotTime = LocalTime.of(hours,minutes,seconds);
                 spotDate = LocalDate.of(year,month,day);
-                if (log.isDebugEnabled()) {
-                    log.debug("Spot Date: " + spotDate + ", Spot Time: " + spotTime);
-                }
             }
             else {
-                if (log.isDebugEnabled()) {
-                    log.debug(String.format("No pattern match: ***%s***", tdContent));
-                }
             }
         }
     }

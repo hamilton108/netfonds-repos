@@ -2,7 +2,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
 
-apply from: '/home/rcs/opt/java/gradlecommon/spring-boot-deps.gradle'
+apply from: '../gradlecommon/spring-boot-deps.gradle'
 
 group = 'hamilton108'
 
