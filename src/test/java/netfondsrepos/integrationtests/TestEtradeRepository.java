@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.print.Doc;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -51,11 +52,27 @@ public class TestEtradeRepository {
 
     }
 
+    public <T,T2> T2 callPrivateMethodFor(Class<T> type, String methodName, T object, Class[] paramTypes, Object[] params)
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        //return type.cast(friends.get(name));
+        Method method = type.getDeclaredMethod(methodName,paramTypes);
+        method.setAccessible(true);
+        T2 result = (T2)method.invoke(object, params);
+        return result;
+    }
+
+
     @Test
     public void testCallsPuts() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",String.class);
+        Class[] paramsTypes = {String.class};
+        Object[] params = {ticker};
+        Document doc = callPrivateMethodFor(EtradeRepository2.class, "getDocument", repos, paramsTypes, params);
+        /*
+        //Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",String.class);
+        Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",params);
         method.setAccessible(true);
         Document doc = (Document) method.invoke(repos, ticker); //repos.getDocument(ticker);
+        */
         Assertions.assertThat(doc).isNotNull();
     }
 }
