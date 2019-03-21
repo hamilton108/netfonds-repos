@@ -1,4 +1,4 @@
-package netfondsrepos.repos;
+package netfondsrepos.integrationtests;
 
 
 import oahu.exceptions.FinancialException;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class MockStockMarketRepos implements StockMarketRepository {
+public class StockMarketReposStub implements StockMarketRepository {
     Map<String,Derivative> derivativeMap = new HashMap<>();
 
     @Override

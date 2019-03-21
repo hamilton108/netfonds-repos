@@ -1,7 +1,50 @@
-package netfondsrepos.repos;
+package netfondsrepos.integrationtests;
 
+import netfondsrepos.repos.EtradeRepository2;
+import oahu.financial.repository.StockMarketRepository;
+import org.assertj.core.api.Assertions;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
 public class TestEtradeRepository {
 
+    private static String storePath = "/home/rcs/opt/java/netfonds-repos/src/test/resources";
+    private static EtradeRepository2 repos;
+
+    /*
+    @Mock
+    StockMarketRepository stockMarketRepository;
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
+    */
+
+    @BeforeClass
+    public static void setup() {
+        repos = new EtradeRepository2();
+        StockMarketRepository stockMarketRepos = new StockMarketReposStub();
+        repos.setStockMarketRepository(stockMarketRepos);
+    }
+
+    @AfterClass
+    public static void tearDown() {
+
+    }
+
+    @Test
+    public void testCallsPuts() {
+        System.out.println("one");
+        Assertions.assertThat(1).isEqualTo(1);
+    }
+    @Test
+    public void testCallsPuts2() {
+        System.out.println("two");
+        Assertions.assertThat(1).isEqualTo(1);
+    }
 }
 /*
 import com.gargoylesoftware.htmlunit.Page;
