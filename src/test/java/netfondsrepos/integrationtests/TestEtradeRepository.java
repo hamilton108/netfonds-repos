@@ -1,19 +1,28 @@
 package netfondsrepos.integrationtests;
 
 import netfondsrepos.repos.EtradeRepository2;
+import oahu.financial.OptionCalculator;
+import oahu.financial.Stock;
+import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.StockMarketRepository;
 import org.assertj.core.api.Assertions;
+import org.jsoup.nodes.Document;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 @RunWith(SpringRunner.class)
 public class TestEtradeRepository {
 
     private static String storePath = "/home/rcs/opt/java/netfonds-repos/src/test/resources";
     private static EtradeRepository2 repos;
+    private static StockMarketRepository stockMarketRepos;
+    private String ticker = "NHY";
 
     /*
     @Mock
@@ -26,8 +35,15 @@ public class TestEtradeRepository {
     @BeforeClass
     public static void setup() {
         repos = new EtradeRepository2();
-        StockMarketRepository stockMarketRepos = new StockMarketReposStub();
+
+        stockMarketRepos = new StockMarketReposStub();
         repos.setStockMarketRepository(stockMarketRepos);
+
+        EtradeDownloader downloader = new DownloaderStub(storePath);
+        repos.setDownloader(downloader);
+
+        OptionCalculator calculator = new BlackScholesStub();
+        repos.setOptionCalculator(calculator);
     }
 
     @AfterClass
@@ -36,19 +52,16 @@ public class TestEtradeRepository {
     }
 
     @Test
-    public void testCallsPuts() {
-        System.out.println("one");
-        Assertions.assertThat(1).isEqualTo(1);
-    }
-    @Test
-    public void testCallsPuts2() {
-        System.out.println("two");
-        Assertions.assertThat(1).isEqualTo(1);
+    public void testCallsPuts() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",String.class);
+        method.setAccessible(true);
+        Document doc = (Document) method.invoke(repos, ticker); //repos.getDocument(ticker);
+        Assertions.assertThat(doc).isNotNull();
     }
 }
 /*
 import com.gargoylesoftware.htmlunit.Page;
-import netfondsrepos.calculator.BlackScholesStub;
+import netfondsrepos.integrationtests.BlackScholesStub;
 import oahu.dto.Tuple;
 import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;
