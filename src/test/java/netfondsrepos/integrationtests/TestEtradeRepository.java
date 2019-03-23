@@ -3,9 +3,12 @@ package netfondsrepos.integrationtests;
 import netfondsrepos.repos.EtradeRepository2;
 import oahu.financial.OptionCalculator;
 import oahu.financial.Stock;
+import oahu.financial.StockPrice;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.StockMarketRepository;
-import org.assertj.core.api.Assertions;
+import oahu.testing.TestUtil;
+import static  org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.data.Offset;
 import org.jsoup.nodes.Document;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -13,9 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.print.Doc;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 public class TestEtradeRepository {
@@ -52,28 +53,45 @@ public class TestEtradeRepository {
 
     }
 
-    public <T,T2> T2 callPrivateMethodFor(Class<T> type, String methodName, T object, Class[] paramTypes, Object[] params)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        //return type.cast(friends.get(name));
-        Method method = type.getDeclaredMethod(methodName,paramTypes);
-        method.setAccessible(true);
-        T2 result = (T2)method.invoke(object, params);
-        return result;
-    }
 
 
     @Test
-    public void testCallsPuts() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testDocIsNotNull() {
         Class[] paramsTypes = {String.class};
         Object[] params = {ticker};
-        Document doc = callPrivateMethodFor(EtradeRepository2.class, "getDocument", repos, paramsTypes, params);
-        /*
-        //Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",String.class);
-        Method method = EtradeRepository2.class.getDeclaredMethod("getDocument",params);
-        method.setAccessible(true);
-        Document doc = (Document) method.invoke(repos, ticker); //repos.getDocument(ticker);
-        */
-        Assertions.assertThat(doc).isNotNull();
+        Document doc = TestUtil.callMethodFor(EtradeRepository2.class, repos, "getDocument", paramsTypes, params);
+        assertThat(doc).isNotNull();
+    }
+    @Test
+    public void testStockPrice() {
+        Stock stock = stockMarketRepos.findStock(ticker);
+
+        Class[] paramsTypes = {String.class};
+        Object[] params = {ticker};
+        Document doc = TestUtil.callMethodFor(EtradeRepository2.class, repos, "getDocument", paramsTypes, params);
+
+        Class[] paramsTypes2 = {Document.class, Stock.class};
+        Object[] params2 = {doc,stock};
+        Optional<StockPrice> stockPrice =
+                TestUtil.callMethodFor(EtradeRepository2.class, repos, "createStockPrice", paramsTypes2, params2);
+        assertThat(stockPrice.isPresent()).isEqualTo(true);
+        validateStockPrice(stockPrice.get());
+    }
+    private void validateStockPrice(StockPrice stockPrice) {
+        double expectedOpn = 41.83;
+        assertThat(stockPrice.getOpn()).isCloseTo(expectedOpn, Offset.offset(0.01));
+
+        double expectedHi = 41.85;
+        assertThat(stockPrice.getHi()).isCloseTo(expectedHi, Offset.offset(0.01));
+
+        double expectedLo = 40.87;
+        assertThat(stockPrice.getLo()).isCloseTo(expectedLo, Offset.offset(0.01));
+
+        double expectedCls = 41.05;
+        assertThat(stockPrice.getCls()).isCloseTo(expectedCls, Offset.offset(0.01));
+
+        long expectedVol = 4777330;
+        assertThat(stockPrice.getVolume()).isEqualTo(expectedVol);
     }
 }
 /*
