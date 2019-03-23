@@ -1,21 +1,24 @@
 package netfondsrepos.integrationtests;
 
 import netfondsrepos.repos.EtradeRepository2;
-import oahu.financial.OptionCalculator;
-import oahu.financial.Stock;
-import oahu.financial.StockPrice;
+import oahu.dto.Tuple;
+import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.StockMarketRepository;
 import oahu.testing.TestUtil;
 import static  org.assertj.core.api.Assertions.assertThat;
-import org.assertj.core.data.Offset;
+import static org.assertj.core.data.Offset.offset;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -57,162 +60,115 @@ public class TestEtradeRepository {
 
     @Test
     public void testDocIsNotNull() {
-        Class[] paramsTypes = {String.class};
-        Object[] params = {ticker};
-        Document doc = TestUtil.callMethodFor(EtradeRepository2.class, repos, "getDocument", paramsTypes, params);
+        Document doc = getDocument();
         assertThat(doc).isNotNull();
     }
+
+
     @Test
     public void testStockPrice() {
         Stock stock = stockMarketRepos.findStock(ticker);
 
-        Class[] paramsTypes = {String.class};
-        Object[] params = {ticker};
-        Document doc = TestUtil.callMethodFor(EtradeRepository2.class, repos, "getDocument", paramsTypes, params);
+        Document doc = getDocument();
 
-        Class[] paramsTypes2 = {Document.class, Stock.class};
-        Object[] params2 = {doc,stock};
-        Optional<StockPrice> stockPrice =
-                TestUtil.callMethodFor(EtradeRepository2.class, repos, "createStockPrice", paramsTypes2, params2);
+        Optional<StockPrice> stockPrice = createStockPrice(doc, stock);
         assertThat(stockPrice.isPresent()).isEqualTo(true);
         validateStockPrice(stockPrice.get());
     }
+
+
+    @Test
+    public void testCallsPutsSizes() {
+        int expected = 103;
+
+        Document doc = getDocument();
+
+        Elements rawCalls = rawOptions(doc, true);
+        assertThat(rawCalls.size()).isEqualTo(expected);
+
+        Elements rawPuts = rawOptions(doc, false);
+        assertThat(rawPuts.size()).isEqualTo(expected);
+    }
+
+
+    @Test
+    public void testCreateDerivativePrices() {
+        Document doc = getDocument();
+        Elements rawCalls = rawOptions(doc,true);
+        Stock stock = stockMarketRepos.findStock(ticker);
+        Optional<StockPrice> stockPrice = createStockPrice(doc, stock);
+        List<DerivativePrice> calls = createDerivativePrices(rawCalls, Derivative.OptionType.CALL, stockPrice.get());
+        assertThat(calls.size()).isEqualTo(91);
+
+        Collection<DerivativePrice> calls2 = repos.calls(ticker);
+        assertThat(calls2).isNotNull();
+        assertThat(calls2.size()).isEqualTo(91);
+    }
+
+    @Test
+    public void testCreateAndValidateDerivativePrice() {
+        Tuple<String> optionInfo = new Tuple<>("NHY","NHY9I30");
+        Optional<DerivativePrice> opx = repos.findDerivativePrice(optionInfo);
+        assertThat(opx).isNotEmpty();
+        validateDerivativePrice(opx.get());
+    }
+
+    private List<DerivativePrice> createDerivativePrices(Elements rawOptions, Derivative.OptionType optionType, StockPrice stockPrice) {
+        Class[] paramsTypes = {Elements.class, Derivative.OptionType.class, StockPrice.class};
+        Object[] params = {rawOptions,optionType,stockPrice};
+        return TestUtil.callMethodFor(EtradeRepository2.class, repos, "createDerivativePrices", paramsTypes, params);
+    }
+    private Optional<StockPrice> createStockPrice(Document doc, Stock stock) {
+        Class[] paramsTypes = {Document.class, Stock.class};
+        Object[] params = {doc,stock};
+        return TestUtil.callMethodFor(EtradeRepository2.class, repos, "createStockPrice", paramsTypes, params);
+    }
+
+    private void validateDerivativePrice(DerivativePrice p) {
+        Derivative d = p.getDerivative();
+        assertThat(d).isNotNull();
+
+        assertThat(d.getX()).isCloseTo(30.0, offset(0.01));
+
+        LocalDate date = LocalDate.of(2019,9,20);
+        assertThat(d.getExpiry()).isEqualTo(date);
+
+        assertThat(d.getOpType()).isEqualTo(Derivative.OptionType.CALL);
+
+        assertThat(p.getBuy()).isCloseTo(11.25, offset(0.01));
+
+        assertThat(p.getSell()).isCloseTo(13.25, offset(0.01));
+
+
+        Optional<Double> maybeIvBuy = p.getIvBuy();
+        assertThat(maybeIvBuy).isNotEmpty();
+        assertThat(maybeIvBuy.get()).isCloseTo(4.25, offset(0.01));
+    }
     private void validateStockPrice(StockPrice stockPrice) {
         double expectedOpn = 41.83;
-        assertThat(stockPrice.getOpn()).isCloseTo(expectedOpn, Offset.offset(0.01));
+        assertThat(stockPrice.getOpn()).isCloseTo(expectedOpn, offset(0.01));
 
         double expectedHi = 41.85;
-        assertThat(stockPrice.getHi()).isCloseTo(expectedHi, Offset.offset(0.01));
+        assertThat(stockPrice.getHi()).isCloseTo(expectedHi, offset(0.01));
 
         double expectedLo = 40.87;
-        assertThat(stockPrice.getLo()).isCloseTo(expectedLo, Offset.offset(0.01));
+        assertThat(stockPrice.getLo()).isCloseTo(expectedLo, offset(0.01));
 
         double expectedCls = 41.05;
-        assertThat(stockPrice.getCls()).isCloseTo(expectedCls, Offset.offset(0.01));
+        assertThat(stockPrice.getCls()).isCloseTo(expectedCls, offset(0.01));
 
         long expectedVol = 4777330;
         assertThat(stockPrice.getVolume()).isEqualTo(expectedVol);
     }
-}
-/*
-import com.gargoylesoftware.htmlunit.Page;
-import netfondsrepos.integrationtests.BlackScholesStub;
-import oahu.dto.Tuple;
-import oahu.financial.*;
-import oahu.financial.html.EtradeDownloader;
-import oahu.financial.repository.StockMarketRepository;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-public class TestEtradeRepository {
-    private static String storePath = "/home/rcs/opt/java/netfonds-repos/src/test/resources";
-    private static final EtradeDownloader<Page, Serializable> downloader = new MockDownloader(storePath);
-    private static final StockMarketRepository stockMarketRepos = new MockStockMarketRepos();
-    private static final OptionCalculator calculator = new BlackScholesStub();
-
-    @DisplayName("Test EtradeRepository2 fetching calls and puts")
-    @Test
-    public void testCallsPuts() throws IOException {
-        String ticker = "NHY";
-        EtradeRepository2 repos = new EtradeRepository2();
-        repos.setDownloader(downloader);
-        repos.setStockMarketRepository(stockMarketRepos);
-        repos.setOptionCalculator(calculator);
-
-        Stock stock = stockMarketRepos.findStock(ticker);
-
-        Document doc = repos.getDocument(ticker);
-        assertNotNull(doc, "Doc is null");
-
-        Optional<StockPrice> stockPrice = repos.createStockPrice(doc, stock);
-        assertEquals(true, stockPrice.isPresent(),"stockPrice.isPresent() == false");
-        validateStockPrice(stockPrice.get());
-
-        Elements rawCalls = repos.findRawOptions(doc, true);
-        validateRawOptions(rawCalls, 103, true);
-
-        Elements rawPuts = repos.findRawOptions(doc, false);
-        validateRawOptions(rawPuts, 103, false);
-
-        List<DerivativePrice> calls = repos.createDerivativePrices(rawCalls,Derivative.OptionType.CALL, stockPrice.get());
-        assertEquals(91, calls.size(), "Calls size not 91");
-
-        Collection<DerivativePrice> calls2 = repos.calls(ticker);
-        assertNotNull(calls2, "Calls2 not null");
-        assertEquals(91, calls2.size(), "Calls2 size not 91");
-
-        Collection<DerivativePrice> puts2 = repos.puts(ticker);
-        assertNotNull(puts2, "Puts2 not null");
-        assertEquals(100, puts2.size(), "Puts2 size not 100");
-
-        Optional<StockPrice> stockPrice2 = repos.stockPrice(ticker);
-        assertNotEquals(Optional.empty(), stockPrice2, "StockPrice2 is Optional.empty()");
-
-        //StockPrice s = stockPrice2.get();
-        //assertEquals(41.83, s.getOpn(),0.05);
-        //assertEquals(41.85, s.getHi(),0.05);
-        //assertEquals(40.87, s.getLo(),0.05);
-        //assertEquals(41.05, s.getCls(),0.05);
-        //assertEquals(4777330, s.getVolume());
-
-
-        Tuple<String> optionInfo = new Tuple<>("NHY","NHY9I30");
-        Optional<DerivativePrice> opx = repos.findDerivativePrice(optionInfo);
-        assertNotEquals(Optional.empty(), opx, String.format("Opx is Optional.empty() for %s", optionInfo.second()));
-        validateDerivativePrice(opx.get());
+    private Elements rawOptions(Document doc, boolean isCalls) {
+        Class[] paramsTypes = {Document.class, boolean.class};
+        Object[] params = {doc,isCalls};
+        return TestUtil.callMethodFor(EtradeRepository2.class, repos, "findRawOptions", paramsTypes, params);
     }
-    private void validateDerivativePrice(DerivativePrice p) {
-        Derivative d = p.getDerivative();
-        assertNotNull(d);
-        double x = 30.0;
-        assertEquals(x, d.getX(), 0.01, String.format("X not %.2f", x));
-        LocalDate date = LocalDate.of(2019,9,20);
-        assertEquals(date, d.getExpiry(), String.format("Expiry not %s", date));
-        Derivative.OptionType optionType = Derivative.OptionType.CALL;
-        assertEquals(optionType, d.getOpType(), String.format("Options type not %s", optionType));
-        double buy = 11.25;
-        assertEquals(buy, p.getBuy(), 0.01, String.format("Buy not %.2f", buy));
-        double sell = 13.25;
-        assertEquals(sell, p.getSell(), 0.01, String.format("Sell not %.2f", sell));
-
-        double ivBuy = 4.25;
-        Optional<Double> maybeIvBuy = p.getIvBuy();
-        assertNotEquals(Optional.empty(), maybeIvBuy, "maybeIvBuy was empty");
-        assertEquals(ivBuy, maybeIvBuy.get(), 0.01, String.format("IvBuy not %.2f", ivBuy));
-    }
-    private void validateRawOptions(Elements options, int expected, boolean isCalls) {
-        String opTypw = isCalls ? "Calls" : "Puts";
-        String msg = String.format("%s not %d", opTypw, expected);
-        assertEquals(expected, options.size(), msg);
-    }
-    private void validateStockPrice(StockPrice stockPrice) {
-        double expectedOpn = 41.83;
-        assertEquals(expectedOpn, stockPrice.getOpn(), 0.01, String.format("Open not %.2f",expectedOpn));
-
-        double expectedHi = 41.85;
-        assertEquals(expectedHi, stockPrice.getHi(), 0.01, String.format("Hi not %.2f",expectedHi));
-
-        double expectedLo = 40.87;
-        assertEquals(expectedLo,  stockPrice.getLo(), 0.01, String.format("Lo not %.2f", expectedLo));
-
-        double expectedCls = 41.05;
-        assertEquals(expectedCls, stockPrice.getCls(), 0.01, String.format("Close not %.2f", expectedCls));
-
-        long expectedVol = 4777330;
-        assertEquals(expectedVol, stockPrice.getVolume(), String.format("Volume not %d", expectedVol));
+    private Document getDocument() {
+        Class[] paramsTypes = {String.class};
+        Object[] params = {ticker};
+        return TestUtil.callMethodFor(EtradeRepository2.class, repos, "getDocument", paramsTypes, params);
     }
 }
-*/
