@@ -1,4 +1,4 @@
-package netfondsrepos.integrationtests;
+package netfondsrepos.repos;
 
 import oahu.financial.DerivativePrice;
 import oahu.financial.OptionCalculator;

@@ -1,4 +1,4 @@
-package netfondsrepos.integrationtests;
+package netfondsrepos.repos;
 
 import netfondsrepos.repos.EtradeRepository2;
 import oahu.dto.Tuple;

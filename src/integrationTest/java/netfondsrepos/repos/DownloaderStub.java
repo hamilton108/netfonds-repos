@@ -1,4 +1,4 @@
-package netfondsrepos.integrationtests;
+package netfondsrepos.repos;
 
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
