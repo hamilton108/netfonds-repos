@@ -24,9 +24,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class EtradeRepository2 implements
-        EtradeRepository<Tuple<String>,
-                         Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>> {
+public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
 
     private EtradeDownloader<Page, Serializable> downloader;
 
@@ -100,8 +98,7 @@ public class EtradeRepository2 implements
 
     }
 
-    @Override
-    public Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
+    Tuple3<Optional<StockPrice>, Collection<DerivativePrice>, Collection<DerivativePrice>>
     parseHtmlFor(String ticker, File suppliedFile) {
         try {
             if (stoxPutsCalls == null) {
