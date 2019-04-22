@@ -18,6 +18,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
     compile project(':oahu')
     compile project(':critter-repos')
     compile "org.slf4j:slf4j-api:$slf4jVersion"

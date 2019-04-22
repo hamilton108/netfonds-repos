@@ -5,10 +5,12 @@ import oahu.annotations.StoreHtmlPage;
 import oahu.annotations.StoreTxtPage;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.html.WebClientManager;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.Serializable;
 
+@Component
 public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
 
 

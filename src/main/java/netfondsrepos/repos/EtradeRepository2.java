@@ -15,6 +15,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +26,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+@Component
 public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
 
     private EtradeDownloader<Page, Serializable> downloader;
@@ -140,9 +143,11 @@ public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
     //endregion
 
     //region Properties
+    @Autowired
     public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
         this.downloader = downloader;
     }
+    @Autowired
     public void setStockMarketRepository(StockMarketRepository stockMarketRepository) {
         this.stockMarketRepository = stockMarketRepository;
     }
