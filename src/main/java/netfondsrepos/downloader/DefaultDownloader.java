@@ -5,6 +5,7 @@ import oahu.annotations.StoreHtmlPage;
 import oahu.annotations.StoreTxtPage;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.html.WebClientManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -162,7 +163,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
 
 
 
-
+    @Autowired
     public void setWebClientManager(WebClientManager webClientManager) {
         this.webClientManager = webClientManager;
     }

@@ -4,21 +4,24 @@ import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
 import oahu.annotations.StoreHtmlPage;
-import oahu.dto.Tuple;
 import oahu.financial.html.WebClientManager;
+import oahu.properties.HarborviewProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Optional;
-import java.util.Properties;
 
+@Component
 public class DefaultWebClientManager implements WebClientManager {
     Logger log = LoggerFactory.getLogger("netfondsrepos.webclient");
-    private String netfondsProperties = "netfonds.properties";
-    private boolean isRealTime = false;
+    private HarborviewProperties harborviewProperties;
+    //private String netfondsProperties = "netfonds.properties";
+    //private boolean isRealTime = false;
     private WebClient webClient;
-    private boolean javaScriptEnabled = false;
+    //private boolean javaScriptEnabled = false;
     private HtmlPage loginPage;
     private HtmlPage logoutPage;
 
@@ -47,11 +50,14 @@ public class DefaultWebClientManager implements WebClientManager {
 
     //region Local Methods
     private WebClient getWebClient() throws IOException {
+        HarborviewProperties.Netfonds nf = harborviewProperties.getNetfonds();
         if (webClient == null) {
             webClient = new WebClient();
-            webClient.getOptions().setJavaScriptEnabled(javaScriptEnabled);
+            //webClient.getOptions().setJavaScriptEnabled(javaScriptEnabled);
+            webClient.getOptions().setJavaScriptEnabled(
+                    nf.isJavascriptenabled());
         }
-        if (isRealTime) {
+        if (nf.isRealtime()) {
             loginPage = login();
         }
         return webClient;
@@ -59,7 +65,7 @@ public class DefaultWebClientManager implements WebClientManager {
 
     @StoreHtmlPage(desc = "DefaultWebClientManager.login")
     private HtmlPage login() throws IOException {
-        Tuple<String> prm = logonParam();
+        //Tuple<String> prm = logonParam();
 
         HtmlPage page = webClient.getPage("https://bang.netfonds.no/auth.php");
         HtmlForm form = page.getFormByName("login");
@@ -68,8 +74,11 @@ public class DefaultWebClientManager implements WebClientManager {
         HtmlTextInput customer = form.getInputByName("customer");
         HtmlPasswordInput password = form.getInputByName("password");
 
-        customer.setValueAttribute(prm.first());
-        password.setValueAttribute(prm.second());
+        HarborviewProperties.Netfonds nf = harborviewProperties.getNetfonds();
+        //customer.setValueAttribute(prm.first());
+        //password.setValueAttribute(prm.second());
+        customer.setValueAttribute(nf.getUser());
+        password.setValueAttribute(nf.getPassword());
 
         return button.click();
     }
@@ -90,20 +99,24 @@ public class DefaultWebClientManager implements WebClientManager {
         return Optional.of(logoutPage);
     }
 
+
+    /*
     private Tuple<String> logonParam() throws IOException {
         Properties prop = new Properties();
-        //InputStream input = null;
-
-        //input = new FileInputStream(netfondsProperties);
-        //prop.load(input);
         prop.load(DefaultWebClientManager.class.getResourceAsStream(String.format("/%s",netfondsProperties)));
         return new Tuple<>(
                     prop.getProperty("netfonds.user"),
                     prop.getProperty("netfonds.password"));
     }
+     */
     //endregion
 
     //region Properties
+    @Autowired
+    public void setHarborviewProperties(HarborviewProperties harborviewProperties) {
+        this.harborviewProperties = harborviewProperties;
+    }
+    /*
     public void setNetfondsProperties(String netfondsProperties) {
         this.netfondsProperties = netfondsProperties;
     }
@@ -115,5 +128,6 @@ public class DefaultWebClientManager implements WebClientManager {
     public void setJavaScriptEnabled(boolean javaScriptEnabled) {
         this.javaScriptEnabled = javaScriptEnabled;
     }
+     */
     //endregion
 }
