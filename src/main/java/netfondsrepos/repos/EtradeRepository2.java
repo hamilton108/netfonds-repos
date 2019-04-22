@@ -151,6 +151,7 @@ public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
     public void setStockMarketRepository(StockMarketRepository stockMarketRepository) {
         this.stockMarketRepository = stockMarketRepository;
     }
+    @Autowired
     public void setOptionCalculator(OptionCalculator optionCalculator) {
         this.optionCalculator = optionCalculator;
     }
