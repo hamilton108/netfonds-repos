@@ -1,13 +1,10 @@
 package netfondsrepos.repos;
 
-import netfondsrepos.repos.EtradeRepository2;
 import oahu.dto.Tuple;
 import oahu.financial.*;
 import oahu.financial.html.EtradeDownloader;
 import oahu.financial.repository.StockMarketRepository;
 import oahu.testing.TestUtil;
-import static  org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.data.Offset.offset;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.junit.AfterClass;
@@ -20,6 +17,9 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Offset.offset;
 
 @RunWith(SpringRunner.class)
 public class TestEtradeRepository {

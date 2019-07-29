@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
+public class DefaultDownloader implements EtradeDownloader<Page, String, Serializable> {
 
 
     //webClient.getOptions().setJavaScriptEnabled(false);
@@ -92,6 +92,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
         return webClientManager.getPage(indexUrl(stockIndex));
     }
 
+    /*
     @Override
     @StoreTxtPage
     public Page downloadPaperHistory(String ticker) throws IOException {
@@ -105,6 +106,7 @@ public class DefaultDownloader implements EtradeDownloader<Page, Serializable> {
     public Page downloadPurchases(String ticker) throws  IOException {
         return webClientManager.getPage(purchasesUrl(ticker));
     }
+    */
 
     private String paperHistoryUrl(String ticker) {
         return String.format("http://www.netfonds.no/quotes/paperhistory.php?paper=%s.OSE&csv_format=csv", ticker);

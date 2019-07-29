@@ -29,7 +29,7 @@ import java.util.*;
 @Component
 public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
 
-    private EtradeDownloader<Page, Serializable> downloader;
+    private EtradeDownloader<Page, String, Serializable> downloader;
 
     private Map<String,Tuple3<Optional<StockPrice>,Collection<DerivativePrice>,Collection<DerivativePrice>>>
     stoxPutsCalls = null;
@@ -144,7 +144,7 @@ public class EtradeRepository2 implements EtradeRepository<Tuple<String>> {
 
     //region Properties
     @Autowired
-    public void setDownloader(EtradeDownloader<Page, Serializable> downloader) {
+    public void setDownloader(EtradeDownloader<Page, String, Serializable> downloader) {
         this.downloader = downloader;
     }
     @Autowired

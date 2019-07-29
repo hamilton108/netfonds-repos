@@ -6,7 +6,7 @@ import oahu.financial.html.EtradeDownloader;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class ScpDownloader implements EtradeDownloader<Page, Serializable> {
+public class ScpDownloader implements EtradeDownloader<Page, String, Serializable> {
     private boolean javaScriptEnabled = false;
 
     @Override
@@ -24,6 +24,7 @@ public class ScpDownloader implements EtradeDownloader<Page, Serializable> {
         return null;
     }
 
+    /*
     @Override
     public Page downloadPaperHistory(String ticker) throws IOException {
         return null;
@@ -38,6 +39,8 @@ public class ScpDownloader implements EtradeDownloader<Page, Serializable> {
     public Page downloadPurchases(String ticker) throws IOException {
         return null;
     }
+
+     */
 
     //region Properties
     boolean isJavaScriptEnabled() {
